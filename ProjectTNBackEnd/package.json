@@ -1,0 +1,25 @@
+{
+  "name": "projecttn",
+  "version": "1.0.0",
+  "description": "CS4800 Class project",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Team-Null"
+  },
+  "keywords": [
+    "CS48000",
+    "classproject"
+  ],
+  "author": "TeamNULL",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
+}
