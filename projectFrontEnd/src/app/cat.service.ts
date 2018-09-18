@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 export interface Cat {
   name: string;
+  item: string;
 }
 
 @Injectable()

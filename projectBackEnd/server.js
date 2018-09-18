@@ -8,9 +8,16 @@ app.listen(8000, () => {console.log('Server started!');});
 
 //test code
 // example of call back method
+app.route('/api/inputTest').get((req, res) => {
+    res.send({
+        test: [{item: 'One'}, {item: 'Two'}]
+    });
+});
+
+
 app.route('/api/cats').get((req, res) => {
     res.send({
-        cats: [{name: 'lilly'}, {name: 'LOOOOL lucy'}]
+        cats: [{name: 'lilly'}, {name: 'lucy'}]
     });
 });
 //example parameter and return
