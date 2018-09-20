@@ -16,12 +16,12 @@ app.use(function(req, res, next) {
 
 // Test server calls
 app.get('/', function(req, res) {
-  console.log('GET request recieved');
+  console.log('GET request received');
   // .end() should return JSON Object
   res.end();
 });
 app.post('/', function(req, res) {
-  console.log('POST request recieved');
+  console.log('POST request received');
   res.end();
 })
 
