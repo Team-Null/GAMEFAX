@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { InputComponent } from './input/input.component';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InputService {
-    messages: string[] = [];
-    private inputUrl = 'api/input';
-    
-    constructor(private http: HttpClient, private inputService: InputService) {
-
+    // Change this to server location later
+    private inputUrl = 'http://localhost:3000/';
+    constructor(private http: HttpClient) { }
+    // Post request (Send input to server) add httpOptions later
+    sendInput(userReq: string): Observable<string> {
+        return this.http.post<string>(this.inputUrl, userReq, httpOptions);
     }
-    //private log(message: string) {
-    //    this.inputService.add('Service: ${message}')
-    //}
-    getInput(): Observable<string[]> {
-        return this.http.get<string[]>(this.inputUrl)
-    }
-    ngOnInit() {
-        this.getInput();
-    }
+}
+// Configs for POST, PUT (Optional)
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type': 'text/plain',
+    })
 }

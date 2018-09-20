@@ -9,14 +9,18 @@ import { InputService } from '../input.service';
 export class InputComponent {
     userInput = '';
     clickMessage = '';
+    response = 'POST confirmed: ';
+    constructor(private inputService: InputService) { }
 
     // functions
+    // Remove later
     onClick() {
-        this.clickMessage = "click event"
-        // take input, add to here
+        this.clickMessage = "Click event!"
     }
-    update(value: string) {
-        this.userInput = value;
+    update(textInput: string) {
+        this.userInput = textInput;
+        // When the server responds successfully it executes whatever is in the subscribe parameters
+        this.inputService.sendInput(textInput).subscribe(userReq => this.response + userReq + ' ' + this.userInput);
     }
 
 }

@@ -11,7 +11,8 @@ import { InputComponent } from './input/input.component';
     InputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     

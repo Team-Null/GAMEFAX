@@ -1,47 +1,31 @@
 const express = require('express');
-const cors = require('cors');
-
-const app = express();
-// Tells the server to listen to incoming request on the specefied port
-app.listen(8000, () => {console.log('Server started!');});
-
-
-//test code
-// example of call back method
-app.route('/api/inputTest').get((req, res) => {
-    res.send({
-        test: [{item: 'One'}, {item: 'Two'}]
-    });
-});
-
-
-app.route('/api/cats').get((req, res) => {
-    res.send({
-        cats: [{name: 'lilly'}, {name: 'lucy'}]
-    });
-});
-//example parameter and return
-app.route('/api/cats/:name').get((req, res) => {
-    const requestedCatName = req.params['name'];
-    res.send({name: requestedCatName});
-});
-//example bodyparser
 const bodyParser = require('body-parser');
+const app = express();
+const cors = require('cors')
 app.use(bodyParser.json());
-app.route('/api/cats').post((req, res) => {
-    res.send(201, req.body);
-});
-//example put
-app.route('/api/cats/:name').put((req, res) => {
-    res.send(200, req.body);
-});
-//example delete
-app.route('/api/cats/:name').delete((req, res) => {
-    res.sendStatus(204);
+app.use(bodyParser.urlencoded({extended: true}) );
+app.use(cors())
+
+// Access controll
+app.use(function(req, res, next) {
+  // Change to domain name later
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
-var corsOptions = {
-    origin: 'http://example.com',
-    optionSuccessStatus: 200
-}
-app.use(cors(corsOptions))
+// Test server calls
+app.get('/', function(req, res) {
+  console.log('GET request recieved');
+  // .end() should return JSON Object
+  res.end();
+});
+app.post('/', function(req, res) {
+  console.log('POST request recieved');
+  res.end();
+})
+
+// Change to server location later
+app.listen(3000, function () {
+  console.log('Listening on port 3000!')
+})
