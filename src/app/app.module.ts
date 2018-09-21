@@ -7,22 +7,21 @@ import { MatToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ApiTestComponent } from './components/api-test/api-test.component';
 import { HomeComponent } from './components/home/home.component';
-
-import { EbayService } from './services/ebay.service'
+import { TestApiComponent } from './components/test-api/test-api.component';
+import { TestApiService } from './services/test-api.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'api/:id', component: ApiTestComponent },
+  { path: 'test', component: TestApiComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ApiTestComponent,
-    HomeComponent
+    HomeComponent,
+    TestApiComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +30,7 @@ const routes: Routes = [
     MatToolbarModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [EbayService],
+  providers: [TestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,34 +5,22 @@ const cors = require('cors');
 
 const app = express();
 const router = express.Router();
+const testPost = require('./server/routes/testPost');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}) );
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/test', testPost);
+
 const port = 3000;
 
 // Change to GAMEFAX domain later
-app.listen(port, () => {
+app.listen(port, (req, res) => {
     console.log('Server running on port: ' + port);
 });
 
-app.get('/', function(req, res) {
-  res.send('Hello World!');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
-
-app.use('/', router);
-
-/* Access control
-app.use(function(req, res, next) {
-  // Change to domain name later
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
-// Test server calls
-app.post('/', function(req, res) {
-  console.log('POST request received');
-  res.end();
-})*/
