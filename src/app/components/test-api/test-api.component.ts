@@ -13,6 +13,7 @@ export class TestApiComponent implements OnInit {
 
   constructor(private testApiService: TestApiService) { }
 
+  // Calls test-api.service.ts and stores its json result into posts[]
   ngOnInit() { 
     this.testApiService.getAllPosts().subscribe(posts => {
       this.posts = posts;

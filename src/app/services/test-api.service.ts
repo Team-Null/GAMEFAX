@@ -9,6 +9,7 @@ export class TestApiService {
 
   constructor(private http: HttpClient) { }
 
+  // Define a method to invoke testPost.js from backened to make a Request
   getAllPosts() {
     return this.http.get('/test').pipe(map(posts => {
       return posts;
