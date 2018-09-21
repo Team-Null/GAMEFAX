@@ -5,13 +5,8 @@
 /tmp
 /out-tsc
 
-# dependencies
-/node_modules
-
 # IDEs and editors
 /.idea
-.idea/*
-*.iml
 .project
 .classpath
 .c9/
@@ -20,6 +15,7 @@
 *.sublime-workspace
 
 # IDE - VSCode
+./.vscode/*
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

@@ -1,9 +1,0 @@
-<!--input component HTML-->
-<button (click)="onClick()">Select</button>
-
-<!-- Use template reference variables! https://angular.io/guide/template-syntax#ref-vars 
-     Provide direct access to an element withing the template/html file -->
-<input #textInput type="text" placeholder="Search" 
-    (keyup.enter)="update(textInput.value)" 
-    (blur)="update(textInput.value); textInput.value='' ">
-<p>You entered: {{userInput}}</p>
