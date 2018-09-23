@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { TestApiService } from '../../services/test-api.service'
+import { APICollectorService } from '../../services/apicollector.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-test-api',
   templateUrl: './test-api.component.html',
   styleUrls: ['./test-api.component.css'],
-  providers: [TestApiService]
 })
 export class TestApiComponent implements OnInit {
 
-  posts: any = [];
+  testData: Object;
 
-  constructor(private testApiService: TestApiService) { }
+  constructor(private apiData: APICollectorService) { }
 
-  // Calls test-api.service.ts and stores its json result into posts[]
+  // Calls APICollector service to get testAPI and stores it in testData
   ngOnInit() { 
-    this.testApiService.getAllPosts().subscribe(posts => {
-      this.posts = posts;
-    });
+    this.apiData.getTestData().subscribe(apiData => {
+      this.testData = apiData;
+    })
   }
 }

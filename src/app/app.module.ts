@@ -1,43 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
+import { HTMLCollectorComponent } from './components/htmlcollector/htmlcollector.component';
 import { TestApiComponent } from './components/test-api/test-api.component';
-import { TestApiService } from './services/test-api.service';
+import { TwitchComponent } from './components/twitch/twitch.component';
 
-// Defining the routing system for each url page and default redirect to home
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  // Routing to test invokes TestApiComponent
-  { path: 'test', component: TestApiComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full'}
-];
+import { APICollectorService } from './services/apicollector.service';
 
 @NgModule({
-  // Components go in declarations
   declarations: [
     AppComponent,
     HomeComponent,
-    TestApiComponent
+    HTMLCollectorComponent,
+    TestApiComponent,
+    TwitchComponent
   ],
 
-  // Modules go in imports
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
 
-  // Services go in providers
-  providers: [TestApiService],
+  providers: [APICollectorService],
   bootstrap: [AppComponent]
 })
 

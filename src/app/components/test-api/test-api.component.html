@@ -1,4 +1,4 @@
-<!-- Takes posts[] from test-api.component.ts and formats it into a Bootstrap table -->
+<!-- Takes testData[] from test-api.component.ts and formats it into a Bootstrap table -->
 <table class="table table-striped">
     <thead>
       <tr>
@@ -9,11 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let post of posts">
-        <td>{{post.userId}}</td>
-        <td>{{post.id}}</td>
-        <td>{{post.title}}</td>
-        <td>{{post.body}}</td>
+      <tr *ngFor="let testData of testData">
+        <td>{{testData.userId}}</td>
+        <td>{{testData.id}}</td>
+        <td>{{testData.title}}</td>
+        <td>{{testData.body}}</td>
       </tr>
     </tbody>
   </table>

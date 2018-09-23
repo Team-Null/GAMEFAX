@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Website</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let twitchData of twitchData">
+        <td>{{twitchData.name}}</td>
+        <td>{{twitchData.email}}</td>
+        <td><a href="http://{{ twitchData.website }}">{{ twitchData.website }}</a></td>
+      </tr>
+    </tbody>
+  </table>
