@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'result/:id',
+    path: 'result/:game',
     component: HTMLCollectorComponent
   }
 ];
