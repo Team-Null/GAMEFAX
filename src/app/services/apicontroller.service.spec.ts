@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { APICollectorService } from './apicollector.service';
+import { APIControllerService } from './apicontroller.service';
 
-describe('APICollectorService', () => {
+describe('APIControllerService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: APICollectorService = TestBed.get(APICollectorService);
+    const service: APIControllerService = TestBed.get(APIControllerService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APICollectorService } from '../../services/apicollector.service';
+import { APIControllerService } from '../../services/apicontroller.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ export class TestApiComponent implements OnInit {
 
   testData: Object;
 
-  constructor(private apiData: APICollectorService) { }
+  constructor(private apiData: APIControllerService) { }
 
   // Calls APICollector service to get testAPI and stores it in testData
   ngOnInit() { 

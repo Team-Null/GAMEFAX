@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}) );
 
 // API file used to interact with external databases
-const apiCollector = require('./server/routes/apiCollector');
-app.use('/api', apiCollector);
+const apiController = require('./server/routes/apiController');
+app.use('/api', apiController);
 
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));

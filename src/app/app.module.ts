@@ -11,7 +11,7 @@ import { HTMLCollectorComponent } from './components/htmlcollector/htmlcollector
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TwitchComponent } from './components/twitch/twitch.component';
 
-import { APICollectorService } from './services/apicollector.service';
+import { APIControllerService } from './services/apicontroller.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { APICollectorService } from './services/apicollector.service';
     AppRoutingModule
   ],
 
-  providers: [APICollectorService],
+  providers: [APIControllerService],
   bootstrap: [AppComponent]
 })
 
