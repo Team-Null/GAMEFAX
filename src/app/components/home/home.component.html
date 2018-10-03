@@ -3,9 +3,9 @@
     <h1 align="center">Home Page</h1>
   </body>
 </div>
-<div>
+<div align="center">
   <input #textInput type="text" placeholder="Search for a game..." 
     (keyup.enter)="update(textInput.value)"
     (blur)="update(textInput.value); textInput.value='' ">
-  <button class="btn btn-default" type="button" (click)="showResults(game)">Search</button>
+  <button class="btn btn-default" type="button" (click)="showResults(gameName)">Search</button>
 </div>

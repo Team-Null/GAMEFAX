@@ -8,13 +8,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HTMLCollectorComponent implements OnInit {
 
-  game: String;
+  gameName: String;
 
   constructor(private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activateRoute.params.subscribe(params => {
-      this.game = params.game;
+      this.gameName = params.game;
     });
   }
 }

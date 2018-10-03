@@ -1,3 +1,4 @@
+import { APIControllerService } from '../../services/apicontroller.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,19 +9,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  game: String;
+  gameName: String;
 
-  constructor(private router: Router) { }
+  constructor(private apiController: APIControllerService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  showResults(game) {
-    console.log("showResults method with game: " + game);
-    this.router.navigate([`/result/` + game]);
+  showResults(gameName) {
+    this.apiController.setGame(gameName);
+    this.router.navigate([`/result/` + gameName]);
   }
 
   update(gameInput: string) {
-    this.game = gameInput;
+    this.gameName = gameInput;
   }
 }

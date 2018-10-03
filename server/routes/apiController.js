@@ -10,8 +10,8 @@ var testAPI = require('./testAPI');
 var twitchAPI = require('./twitchAPI');
 
 // Method for each respective API call
-router.get('/test', (req, res) => { 
-    testAPI.getTestData().then(response => {
+router.get('/test/:game', (req, res) => { 
+    testAPI.getTestData(req.params.game).then(response => {
         res.status(200).json(response.data);
     })
 
@@ -20,8 +20,8 @@ router.get('/test', (req, res) => {
     })
 })
 
-router.get('/twitch', (req, res) => { 
-    twitchAPI.getTwitchData().then(response => {
+router.get('/twitch/:game', (req, res) => { 
+    twitchAPI.getTwitchData(req.params.game).then(response => {
         res.status(200).json(response.data);
     })
 
