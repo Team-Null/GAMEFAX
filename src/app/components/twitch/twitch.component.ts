@@ -11,12 +11,12 @@ export class TwitchComponent implements OnInit {
 
   twitchData: Object;
 
-  constructor(private apiData: APIControllerService) { }
+  constructor(private apiController: APIControllerService) { }
 
   // Calls APICollector service to get twitchAPI and stores it in twitchData
   ngOnInit() { 
-    this.apiData.getTwitchData().subscribe(apiData => {
-      this.twitchData = apiData;
+    this.apiController.getTwitchData().subscribe(data => {
+      this.twitchData = data;
     })
   }
 }

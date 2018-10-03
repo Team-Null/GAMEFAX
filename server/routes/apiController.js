@@ -21,13 +21,10 @@ router.get('/test/:game', (req, res) => {
 })
 
 router.get('/twitch/:game', (req, res) => { 
-    twitchAPI.getTwitchData(req.params.game).then(response => {
-        res.status(200).json(response.data);
-    })
-
-    .catch(error => {
-        console.log(error);
-    })
+    twitchAPI.getTwitchData(req.params.game, response => {
+        //Returning only the streams section of the JSON response
+        res.json(response.streams);
+    });
 })
 
 module.exports = router;
