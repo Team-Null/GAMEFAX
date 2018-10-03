@@ -22,8 +22,7 @@ router.get('/test/:game', (req, res) => {
 
 router.get('/twitch/:game', (req, res) => { 
     twitchAPI.getTwitchData(req.params.game, response => {
-        //Returning only the streams section of the JSON response
-        res.json(response.streams);
+        res.json(response);
     });
 })
 
