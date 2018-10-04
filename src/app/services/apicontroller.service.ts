@@ -24,4 +24,8 @@ export class APIControllerService {
   getTwitchData() {
     return this.http.get("/api/twitch/" + this.gameName)
   }
+
+  getEbayData() {
+    return this.http.get("/api/ebay/" + this.gameName)
+  }
 }

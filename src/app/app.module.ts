@@ -12,6 +12,7 @@ import { TestApiComponent } from './components/test-api/test-api.component';
 import { TwitchComponent } from './components/twitch/twitch.component';
 
 import { APIControllerService } from './services/apicontroller.service';
+import { EbayComponent } from './components/ebay/ebay.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { APIControllerService } from './services/apicontroller.service';
     HomeComponent,
     HTMLCollectorComponent,
     TestApiComponent,
-    TwitchComponent
+    TwitchComponent,
+    EbayComponent
   ],
 
   imports: [

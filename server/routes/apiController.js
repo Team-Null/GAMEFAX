@@ -8,6 +8,7 @@ const router = express.Router();
 // Import respective API handling classes
 var testAPI = require('./testAPI');
 var twitchAPI = require('./twitchAPI');
+var ebayAPI= require('./ebayAPI');
 
 // Method for each respective API call
 router.get('/test/:game', (req, res) => { 
@@ -25,5 +26,12 @@ router.get('/twitch/:game', (req, res) => {
         res.json(response);
     });
 })
+
+router.get('/ebay/:game', (req, res) => {
+  ebayAPI.getEbayData(req.params.game, response => {
+    res.json(response);
+  });
+})
+
 
 module.exports = router;
