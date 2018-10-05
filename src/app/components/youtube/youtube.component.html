@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let youtubeData of youtubeData">
+      <td>{{youtubeData.name}}</td>
+      <td>{{youtubeData.phone}}</td>
+      <a href="{{youtubeData.website}}">{{youtubeData.website}} (Placeholder)</a>
+    </tr>
+  </tbody>
+</table>

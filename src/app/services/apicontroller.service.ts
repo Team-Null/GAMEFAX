@@ -25,6 +25,10 @@ export class APIControllerService {
     return this.http.get("/api/twitch/" + this.gameName)
   }
 
+  getYoutubeData() {
+    return this.http.get("/api/youtube/" + this.gameName)
+  }
+
   getEbayData() {
     return this.http.get("/api/ebay/" + this.gameName)
   }

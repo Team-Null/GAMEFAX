@@ -11,14 +11,12 @@ export class EbayComponent implements OnInit {
 
   ebayData: Object;
 
-
   constructor(private apiController: APIControllerService) { }
 
-  //Gets ebayAPI ans stores it into ebayData.
+  //Gets ebayAPI and stores it into ebayData.
   ngOnInit() {
     this.apiController.getEbayData().subscribe(data => {
       this.ebayData= data["game_info"];
     })
   }
-
 }
