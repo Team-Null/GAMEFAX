@@ -5,62 +5,15 @@ const twitchUserAPI = 'https://api.twitch.tv/helix/users';
 const clientID = 'yxkhooad1bbvkjb13ibi0hcv4hhlcu';
 
 //Final JSON object to be sent back to the frontend
-var twitchPayload = {
-    "game_name": '',
-    "game_id": '',
-    "streams": [
-        {
-            "user_id": '',
-            "display_name": '',
-            "title": '',
-            "viewer_count": '',
-            "thumbnail_url": '',
-            "profile_image_url": ''
-        },
-        {
-            "user_id": '',
-            "display_name": '',
-            "title": '',
-            "viewer_count": '',
-            "thumbnail_url": '',
-            "profile_image_url": ''
-        },
-        {
-            "user_id": '',
-            "display_name": '',
-            "title": '',
-            "viewer_count": '',
-            "thumbnail_url": '',
-            "profile_image_url": ''
-        },
-        {
-            "user_id": '',
-            "display_name": '',
-            "title": '',
-            "viewer_count": '',
-            "thumbnail_url": '',
-            "profile_image_url": ''
-        },
-        {
-            "user_id": '',
-            "display_name": '',
-            "title": '',
-            "viewer_count": '',
-            "thumbnail_url": '',
-            "profile_image_url": ''
-        }
-    ]
-}
-
-var twitchPayload2 = {
-    "status": '0',
-    "game_id": '',
-    "game_name": '',
-    "streams": []
-}
+var twitchPayload;
 
 //Function to handle HTTP Requests to Twitch's APIs
 module.exports.getTwitchData = function(gameName, callback) {
+    //Clear JSON object before each new game search
+    twitchPayload = {};
+    twitchPayload["status"] = 0;
+    twitchPayload["gameInput"] = gameName;
+
     //HTTP Request to find Game ID from Game Name
     axios.get(twitchGamesAPI, {
         params: {
@@ -71,18 +24,21 @@ module.exports.getTwitchData = function(gameName, callback) {
         }
     })
     .then(response => {
+        //Throws error if game is not found in Twitch Database
+        if(response.data.data.length == 0) {
+            throw "Game not found.";
+        }
+
         //Storing Game Name and Game ID in final JSON
-        twitchPayload2.game_name = response.data.data[0].name;
-        twitchPayload2.game_id = response.data.data[0].id;
-    })
-    .catch(error => {
-        console.log(error);
+        twitchPayload.status = 1;
+        twitchPayload["game_name"] = response.data.data[0].name;
+        twitchPayload["game_id"] = response.data.data[0].id;
     })
     .then(() => {
-        //HTTP Request to find Top Streams from Game ID
+        //HTTP Request to find up to 5 Top Streams from Game ID
         axios.get(twitchStreamsAPI, {
             params: {
-                'game_id': twitchPayload2.game_id,
+                'game_id': twitchPayload.game_id,
                 'first': 5
              },
              headers: {
@@ -90,25 +46,22 @@ module.exports.getTwitchData = function(gameName, callback) {
              }     
         })
         .then(response2 => {
-            //Populating final JSON with top 5 stream's information
-            /*for(i = 0; i < 5; i++) {
-                twitchPayload.streams[i].user_id = response2.data.data[i].user_id;
-                twitchPayload.streams[i].title = response2.data.data[i].title;
-                twitchPayload.streams[i].viewer_count = response2.data.data[i].viewer_count;
-                twitchPayload.streams[i].thumbnail_url = response2.data.data[i].thumbnail_url;
-            }*/
-            twitchPayload2.streams = response2.data.data;
-        })
-        .catch(error => {
-            console.log(error);
+            //Throws error if no streams found for requested game
+            if(response2.data.data.length == 0) {
+                throw "No streams found.";
+            }
+
+            twitchPayload.status = 2;
+            twitchPayload["streams"] = response2.data.data;
         })
         .then(() => {
+            //Create variable amount of GET requests for each stream in the array and store in promises[]
             promises = [];
 
-            for(i = 0; i < twitchPayload2.streams.length; i++) {
+            for(i = 0; i < twitchPayload.streams.length; i++) {
                 promises.push(axios.get(twitchUserAPI, {
                     params: {
-                        'id': twitchPayload2.streams[0].user_id
+                        'id': twitchPayload.streams[i].user_id
                     },
                     headers: {
                         'Client-ID': clientID
@@ -116,92 +69,25 @@ module.exports.getTwitchData = function(gameName, callback) {
                 }));
             }
 
-            console.log(promises);
+            //Iterate over each promise and store respective data in final JSON
+            axios.all(promises).then(axios.spread((...responses) => {
+                for(i = 0; i < twitchPayload.streams.length; i++) {
+                    twitchPayload.streams[i]["display_name"] = responses[i].data.data[0].display_name;
+                    twitchPayload.streams[i]["profile_image_url"] = responses[i].data.data[0].profile_image_url;
+                }
 
-                axios.all(promises).then(axios.spread());
-
-
-                    /*results.forEach(response => {
-                        twitchPayload2.streams[0]["display_name"] = response.data.data[0].display_name;
-                        twitchPayload2.streams[0]["profile_image_url"] = response.data.data[0].profile_image_url;
-                        mainObject[response.identifier] = response.value;
-                    })*/
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-            //5 simultaneous HTTP requests for each respective User ID to find Display Name and Profile Picture
-            /*axios.all([
-                axios.get(twitchUserAPI, {
-                    params: {
-                        'id': twitchPayload2.streams[0].user_id
-                     },
-                     headers: {
-                         'Client-ID': clientID
-                     }
-                }),
-                axios.get(twitchUserAPI, {
-                    params: {
-                        'id': twitchPayload2.streams[1].user_id 
-                     },
-                     headers: {
-                         'Client-ID': clientID
-                     }
-                }),
-                axios.get(twitchUserAPI, {
-                    params: {
-                        'id': twitchPayload2.streams[2].user_id 
-                     },
-                     headers: {
-                         'Client-ID': clientID
-                     }
-                }),
-                axios.get(twitchUserAPI, {
-                    params: {
-                        'id': twitchPayload2.streams[3].user_id 
-                     },
-                     headers: {
-                         'Client-ID': clientID
-                     }
-                }),
-                axios.get(twitchUserAPI, {
-                    params: {
-                        'id': twitchPayload2.streams[4].user_id 
-                     },
-                     headers: {
-                         'Client-ID': clientID
-                     }
-                })
-            ])
-            .then(axios.spread(function(user1Response, user2Reponse, user3Response, user4Response, user5response) {
-                //Populating final JSON with respective data from each user
-                twitchPayload.streams[0].display_name = user1Response.data.data[0].display_name;
-                twitchPayload.streams[0].profile_image_url = user1Response.data.data[0].profile_image_url;
-        
-                twitchPayload.streams[1].display_name = user2Reponse.data.data[0].display_name;
-                twitchPayload.streams[1].profile_image_url = user2Reponse.data.data[0].profile_image_url;
-        
-                twitchPayload.streams[2].display_name = user3Response.data.data[0].display_name;
-                twitchPayload.streams[2].profile_image_url = user3Response.data.data[0].profile_image_url;
-        
-                twitchPayload.streams[3].display_name = user4Response.data.data[0].display_name;
-                twitchPayload.streams[3].profile_image_url = user4Response.data.data[0].profile_image_url;
-        
-                twitchPayload.streams[4].display_name = user5response.data.data[0].display_name;
-                twitchPayload.streams[4].profile_image_url = user5response.data.data[0].profile_image_url;          
-
-                //Callback function to return final JSON AFTER every HTTP request has been made
                 callback(twitchPayload);
             }))
-            .catch(error => {
-                console.log(error);
-            });*/
         })
         .catch(error => {
+            //No Streams Found Error
             console.log(error);
+            callback(twitchPayload);
         });
     })
     .catch(error => {
+        //No Games Found Error
         console.log(error);
+        callback(twitchPayload);
     });
 }
