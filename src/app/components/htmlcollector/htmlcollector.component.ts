@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { APIControllerService } from '../../services/apicontroller.service';
 
 @Component({
   selector: 'app-htmlcollector',
@@ -10,11 +11,13 @@ export class HTMLCollectorComponent implements OnInit {
 
   gameName: String;
 
-  constructor(private router: Router, private activateRoute: ActivatedRoute) { }
+  constructor(private activateRoute: ActivatedRoute, private apiController: APIControllerService) { }
 
   ngOnInit() {
     this.activateRoute.params.subscribe(params => {
       this.gameName = params.game;
+      //Results page reapplies the game name to the apiController after every page refresh
+      this.apiController.setGame(params.game);
     });
   }
 }
