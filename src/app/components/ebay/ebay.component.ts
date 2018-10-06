@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-ebay',
   templateUrl: './ebay.component.html',
-  styleUrls: ['./ebay.component.css']
+  styleUrls: ['./ebay.component.styl']
 })
 export class EbayComponent implements OnInit {
 

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-youtube',
   templateUrl: './youtube.component.html',
-  styleUrls: ['./youtube.component.css']
+  styleUrls: ['./youtube.component.styl']
 })
 export class YoutubeComponent implements OnInit {
 

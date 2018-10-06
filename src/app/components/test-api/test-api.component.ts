@@ -4,7 +4,7 @@ import { APIControllerService } from '../../services/apicontroller.service';
 @Component({
   selector: 'app-test-api',
   templateUrl: './test-api.component.html',
-  styleUrls: ['./test-api.component.css'],
+  styleUrls: ['./test-api.component.styl'],
 })
 export class TestApiComponent implements OnInit {
 
