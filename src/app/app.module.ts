@@ -10,7 +10,6 @@ import { APIControllerService } from './services/apicontroller.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HTMLCollectorComponent } from './components/htmlcollector/htmlcollector.component';
-import { TestApiComponent } from './components/test-api/test-api.component';
 import { TwitchComponent } from './components/twitch/twitch.component';
 
 import { FormsModule } from '@angular/forms';
@@ -23,7 +22,6 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     AppComponent,
     HomeComponent,
     HTMLCollectorComponent,
-    TestApiComponent,
     TwitchComponent,
     EbayComponent,
     YoutubeComponent
