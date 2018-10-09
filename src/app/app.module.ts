@@ -12,10 +12,6 @@ import { HomeComponent } from './components/home/home.component';
 import { HTMLCollectorComponent } from './components/htmlcollector/htmlcollector.component';
 import { TwitchComponent } from './components/twitch/twitch.component';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8ac281332dc37de7b33a659f73e697027878474e
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EbayComponent } from './components/ebay/ebay.component';
