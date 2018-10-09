@@ -37,7 +37,8 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     MatToolbarModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule,
+    HttpClientJsonpModule,
+    NgbModule
   ],
 
   providers: [APIControllerService],

@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, map, catchError, tap, switchMap } from 'rxjs/operators';
 
-const Url = ' https://www.giantbomb.com/api/search/?api_key=7ff039d89a3179530df0d50d46a5bc8741b4b65f&format=jsonp&query='
+const Url = 'https://www.giantbomb.com/api/search/?api_key=7ff039d89a3179530df0d50d46a5bc8741b4b65f&format=jsonp&query='
 
 @Injectable()
 export class Search {
@@ -15,7 +15,7 @@ export class Search {
     if(input === '') {
       return of([]);
     }
-    return this.http.jsonp(Url + input + '&resources=game&field_list=name&json_callback=JSONP_CALLBACK', "callback").pipe(map(res => res["results"] ))
+    return this.http.jsonp(Url + input + '&resources=game&field_list=name&json_callback=JSONP_CALLBACK', "callback").pipe(map(res => res["results"]));
   }
 }
 
@@ -27,13 +27,11 @@ export class Search {
 })
 
 export class HomeComponent implements OnInit {
-  gameName: string;
-
   model: any;
   searching = false;
   searchFailed = false;
 
-  constructor(private searchList: Search,private apiController: APIControllerService, private router: Router) { }
+  constructor(private searchList: Search, private apiController: APIControllerService, private router: Router) { }
   ngOnInit() {
   }
 
