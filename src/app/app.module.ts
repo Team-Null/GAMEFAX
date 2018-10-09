@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,8 @@ import { TestApiComponent } from './components/test-api/test-api.component';
 import { TwitchComponent } from './components/twitch/twitch.component';
 
 import { APIControllerService } from './services/apicontroller.service';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { APIControllerService } from './services/apicontroller.service';
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    NgbModule,
   ],
 
   providers: [APIControllerService],

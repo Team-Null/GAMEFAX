@@ -4,8 +4,19 @@
   </body>
 </div>
 <div align="center">
-  <input #textInput type="text" placeholder="Search for a game..." 
-    (keyup.enter)="update(textInput.value)"
-    (blur)="update(textInput.value); textInput.value='' ">
-  <button class="btn btn-default" type="button" (click)="showResults(gameName)">Search</button>
-</div>
+
+<div class="form-group">
+    <label for="typeahead-http">Search:</label>
+    <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" 
+      [ngbTypeahead]="search" 
+      [inputFormatter]="formatter" 
+      [resultFormatter]="formatter" 
+      [showHint]="false" 
+      [editable]="false" 
+      placeholder="Search..." 
+      (selectItem)="showResults($event)"/>
+    <span *ngIf="searching">searching...</span>
+    <button class="btn btn-default" type="button" (click)="showResults(input)">Search</button>
+    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+  </div>
+  Passed Result: {{gameName}}

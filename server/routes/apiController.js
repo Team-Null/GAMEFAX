@@ -4,6 +4,7 @@
 
 const express = require('express');
 const router = express.Router();
+app = express();
 
 // Import respective API handling classes
 var testAPI = require('./testAPI');
