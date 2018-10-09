@@ -10,10 +10,12 @@ import { APIControllerService } from './services/apicontroller.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HTMLCollectorComponent } from './components/htmlcollector/htmlcollector.component';
-import { TestApiComponent } from './components/test-api/test-api.component';
 import { TwitchComponent } from './components/twitch/twitch.component';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8ac281332dc37de7b33a659f73e697027878474e
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EbayComponent } from './components/ebay/ebay.component';
@@ -24,7 +26,6 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     AppComponent,
     HomeComponent,
     HTMLCollectorComponent,
-    TestApiComponent,
     TwitchComponent,
     EbayComponent,
     YoutubeComponent
@@ -34,6 +35,7 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     MatToolbarModule,
     AppRoutingModule,
     FormsModule,
