@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-twitch',
   templateUrl: './twitch.component.html',
-  styleUrls: ['./twitch.component.css'],
+  styleUrls: ['./twitch.component.styl'],
 })
 export class TwitchComponent implements OnInit {
 

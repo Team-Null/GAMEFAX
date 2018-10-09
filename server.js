@@ -22,11 +22,11 @@ const apiController = require('./server/routes/apiController');
 app.use('/api', apiController);
 
 // Angular DIST output folder
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/GAMEFAX')));
 
 // Send all Requests to the Angular app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/GAMEFAX/index.html'));
 });
 app.get('/home', function(req, res, next) {
   // Handle the get for this route

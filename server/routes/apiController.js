@@ -9,6 +9,8 @@ app = express();
 // Import respective API handling classes
 var testAPI = require('./testAPI');
 var twitchAPI = require('./twitchAPI');
+var youtubeAPI = require('./youtubeAPI');
+var ebayAPI= require('./ebayAPI');
 
 // Method for each respective API call
 router.get('/test/:game', (req, res) => { 
@@ -27,4 +29,20 @@ router.get('/twitch/:game', (req, res) => {
     });
 })
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+router.get('/youtube/:game', (req, res) => { 
+    youtubeAPI.getYoutubeData(req.params.game, response => {
+        res.json(response);
+    });
+})
+
+router.get('/ebay/:game', (req, res) => {
+  ebayAPI.getEbayData(req.params.game, response => {
+    res.json(response);
+  });
+})
+
+module.exports = router;
+>>>>>>> caeb96b8edf089e92e1c16bd6f7e2f43ae06f910
