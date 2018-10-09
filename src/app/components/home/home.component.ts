@@ -24,12 +24,8 @@ export class Search {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-<<<<<<< HEAD
-  providers: [Search],
-  styleUrls: ['./home.component.css']
-=======
-  styleUrls: ['./home.component.styl']
->>>>>>> caeb96b8edf089e92e1c16bd6f7e2f43ae06f910
+  styleUrls: ['./home.component.styl'],
+  providers: [Search]
 })
 
 export class HomeComponent implements OnInit {

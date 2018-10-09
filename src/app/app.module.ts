@@ -12,15 +12,11 @@ import { HomeComponent } from './components/home/home.component';
 import { HTMLCollectorComponent } from './components/htmlcollector/htmlcollector.component';
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TwitchComponent } from './components/twitch/twitch.component';
-<<<<<<< HEAD
 
-import { APIControllerService } from './services/apicontroller.service';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-=======
 import { EbayComponent } from './components/ebay/ebay.component';
 import { YoutubeComponent } from './components/youtube/youtube.component';
->>>>>>> caeb96b8edf089e92e1c16bd6f7e2f43ae06f910
 
 @NgModule({
   declarations: [
@@ -37,6 +33,7 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     MatToolbarModule,
     AppRoutingModule,
     FormsModule,
