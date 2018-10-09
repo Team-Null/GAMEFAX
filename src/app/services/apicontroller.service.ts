@@ -28,4 +28,8 @@ export class APIControllerService {
   getEbayData() {
     return this.http.get("/api/ebay/" + this.gameName)
   }
+
+  getWalmartData() {
+    return this.http.get("/api/walmart/" + this.gameName)
+  }
 }

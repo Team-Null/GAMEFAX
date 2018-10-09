@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EbayComponent } from './components/ebay/ebay.component';
 import { YoutubeComponent } from './components/youtube/youtube.component';
+import { WalmartComponent } from './components/walmart/walmart.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     HTMLCollectorComponent,
     TwitchComponent,
     EbayComponent,
-    YoutubeComponent
+    YoutubeComponent,
+    WalmartComponent
   ],
 
   imports: [

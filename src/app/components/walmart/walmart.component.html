@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Game Name</th>
+    <th scope="col">Product Picture</th>
+    <th scope="col">URL</th>
+    <th scope="col">Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let walmartData of walmartData">
+    <td>{{walmartData.name}}</td>
+    <td><img src="{{walmartData.thumbnailImage}}" style="width:75px;height:75px;"></td>
+    <td><a href="{{walmartData.productUrl}}">Walmart Item URL</a></td>
+    <td>{{walmartData.salePrice}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -10,6 +10,7 @@ app = express();
 var twitchAPI = require('./twitchAPI');
 var youtubeAPI = require('./youtubeAPI');
 var ebayAPI= require('./ebayAPI');
+var walmartAPI= require('./walmartAPI');
 
 // Method for each respective API call
 router.get('/twitch/:game', (req, res) => { 
@@ -26,6 +27,12 @@ router.get('/youtube/:game', (req, res) => {
 
 router.get('/ebay/:game', (req, res) => {
   ebayAPI.getEbayData(req.params.game, response => {
+    res.json(response);
+  });
+})
+
+router.get('/walmart/:game', (req, res) => {
+  walmartAPI.getWalmartData(req.params.game, response => {
     res.json(response);
   });
 })
