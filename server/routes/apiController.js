@@ -29,9 +29,6 @@ router.get('/twitch/:game', (req, res) => {
     });
 })
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 router.get('/youtube/:game', (req, res) => { 
     youtubeAPI.getYoutubeData(req.params.game, response => {
         res.json(response);
@@ -45,4 +42,3 @@ router.get('/ebay/:game', (req, res) => {
 })
 
 module.exports = router;
->>>>>>> caeb96b8edf089e92e1c16bd6f7e2f43ae06f910
