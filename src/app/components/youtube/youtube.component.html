@@ -1,16 +1,24 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Website</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let youtubeData of youtubeData">
-      <td>{{youtubeData.name}}</td>
-      <td>{{youtubeData.phone}}</td>
-      <a href="{{youtubeData.website}}">{{youtubeData.website}}</a>
-    </tr>
-  </tbody>
-</table>
+<ng-container *ngIf="youtubeData.status === 0; else Success">
+  <p style="margin-left: 20px;">{{youtubeData.gameInput}} not found.</p>
+</ng-container>
+
+<ng-template #Success>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Channel Name</th>
+        <th scope="col">Video URL</th>
+        <th scope="col">Thumbnail</th>
+        <th scope="col">Video Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let youtubeVideo of youtubeDataVideos">
+        <td>{{youtubeVideo.snippet.channelTitle}}</td>
+        <td><a href="https://www.youtube.com/watch?v={{youtubeVideo.id.videoId}}" target="_blank">ID: {{youtubeVideo.id.videoId}}</a></td>
+        <td><img src="{{youtubeVideo.snippet.thumbnails.medium.url}}"></td>
+        <td>{{youtubeVideo.snippet.title}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

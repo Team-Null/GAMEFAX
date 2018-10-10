@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class YoutubeComponent implements OnInit {
 
   youtubeData: Object;
+  youtubeDataVideos: Object;
 
   constructor(private apiController: APIControllerService) { }
 
@@ -17,6 +18,7 @@ export class YoutubeComponent implements OnInit {
   ngOnInit() { 
     this.apiController.getYoutubeData().subscribe(data => {
       this.youtubeData = data;
+      this.youtubeDataVideos = data["items"];
     })
   }
 }

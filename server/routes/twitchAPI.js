@@ -33,7 +33,8 @@ module.exports.getTwitchData = async function(gameName, callback) {
         twitchPayload.status = 1;
         twitchPayload["game_name"] = gameResponse.data.data[0].name;
         twitchPayload["game_id"] = gameResponse.data.data[0].id;
-    } catch(error) {
+    } 
+    catch(error) {
         //No Games Found Error
         console.log(error);
         callback(twitchPayload);
@@ -57,7 +58,11 @@ module.exports.getTwitchData = async function(gameName, callback) {
 
         twitchPayload.status = 2;
         twitchPayload["streams"] = streamResponse.data.data;
-    } catch(error) {
+        for(i = 0; i < twitchPayload.streams.length; i++) {
+            twitchPayload.streams[i].thumbnail_url = twitchPayload.streams[i].thumbnail_url.slice(0, -20) + '300x169.jpg'
+        }
+    } 
+    catch(error) {
         //No Streams Found Error
         console.log(error);
         callback(twitchPayload);
