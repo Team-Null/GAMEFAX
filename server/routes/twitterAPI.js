@@ -13,7 +13,7 @@ module.exports.getTwitterData = async function(gameName, callback) {
         lang: "en",
         count: 10
     }, function(err, data, res) {
-        callback(JSON.stringify(data, undefined, 2));
-        console.log(JSON.stringify(data, undefined, 2));
+        callback(data);
+        console.log(data);
     });
 }

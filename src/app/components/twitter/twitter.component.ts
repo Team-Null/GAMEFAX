@@ -13,7 +13,7 @@ export class TwitterComponent implements OnInit {
 
     ngOnInit() {
         this.apiController.getTwitterData().subscribe(data => {
-            this.twitterData = data;
+            this.twitterData = data["statuses"];
         })
     }
 }

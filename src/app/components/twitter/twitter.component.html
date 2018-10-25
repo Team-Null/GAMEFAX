@@ -1,15 +1,18 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Game Name</th>
+        <th scope="col">Source Account</th>
+        <th scope="col">Link</th>
+        <th scope="col">Text</th>
+        <th scope="col">Date Created</th>
       </tr>
     </thead>
     <tbody>
     <tr *ngFor="let twitterData of twitterData">
-      <td>Game Name</td>
-      <td>tweetOne</td>
-      <td>tweetTwo</td>
-      <td>tweetThree</td>
+      <td><img src="{{twitterData.user.profile_image_url}}"><a href="https://twitter.com/{{twitterData.user.screen_name}}" target="_blank"> {{twitterData.user.name}}</a></td>
+      <td><a href="https://twitter.com/i/web/status/{{twitterData.id_str}}" target="_blank">Link</a></td>
+      <td>{{twitterData.text}}</td>
+      <td>{{twitterData.created_at}}</td>
     </tr>
     </tbody>
   </table>
