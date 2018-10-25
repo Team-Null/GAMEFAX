@@ -1,4 +1,5 @@
-<table class="table table-striped">
+<div *ngIf="twitterData != null">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">Source Account</th>
@@ -8,11 +9,12 @@
       </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let twitterData of twitterData">
-      <td><img src="{{twitterData.user.profile_image_url}}"><a href="https://twitter.com/{{twitterData.user.screen_name}}" target="_blank"> {{twitterData.user.name}}</a></td>
-      <td><a href="https://twitter.com/i/web/status/{{twitterData.id_str}}" target="_blank">Link</a></td>
-      <td>{{twitterData.text}}</td>
-      <td>{{twitterData.created_at}}</td>
-    </tr>
+      <tr *ngFor="let twitterData of twitterData">
+        <td><img src="{{twitterData.user.profile_image_url}}"><a href="https://twitter.com/{{twitterData.user.screen_name}}" target="_blank"> {{twitterData.user.name}}</a></td>
+        <td><a href="https://twitter.com/i/web/status/{{twitterData.id_str}}" target="_blank">Link</a></td>
+        <td>{{twitterData.text}}</td>
+        <td>{{twitterData.created_at}}</td>
+      </tr>
     </tbody>
   </table>
+</div>

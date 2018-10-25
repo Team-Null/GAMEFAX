@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class EbayComponent implements OnInit {
 
   ebayData: Object;
+  dataFetched: boolean;
 
   constructor(private apiController: APIControllerService) { }
 
@@ -17,6 +18,7 @@ export class EbayComponent implements OnInit {
   ngOnInit() {
     this.apiController.getEbayData().subscribe(data => {
       this.ebayData= data["game_info"];
+      this.dataFetched = true;
     })
   }
 }

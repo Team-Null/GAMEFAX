@@ -1,18 +1,20 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Game Name</th>
-      <th scope="col">Product Picture</th>
-      <th scope="col">URL</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let ebayData of ebayData">
-    <td>{{ebayData.title}}</td>
-    <td><img src="{{ebayData.galleryURL}}" style="width:75px;height:75px;"></td>
-    <td><a href="{{ebayData.viewItemURL}}" target="_blank">Ebay Item URL</a></td>
-    <td>{{ebayData.currentPrice}}</td>
-  </tr>
-  </tbody>
-</table>
+<div *ngIf="ebayData != null">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Game Name</th>
+        <th scope="col">Product Picture</th>
+        <th scope="col">URL</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ebayData of ebayData">
+        <td>{{ebayData.title}}</td>
+        <td><img src="{{ebayData.galleryURL}}" style="width:75px;height:75px;"></td>
+        <td><a href="{{ebayData.viewItemURL}}" target="_blank">Ebay Item URL</a></td>
+        <td>{{ebayData.currentPrice}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
