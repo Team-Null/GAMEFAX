@@ -11,6 +11,7 @@ var twitchAPI = require('./twitchAPI');
 var youtubeAPI = require('./youtubeAPI');
 var ebayAPI= require('./ebayAPI');
 var walmartAPI= require('./walmartAPI');
+var twitterAPI = require('./twitterAPI');
 
 // Method for each respective API call
 router.get('/twitch/:game', (req, res) => { 
@@ -35,6 +36,12 @@ router.get('/walmart/:game', (req, res) => {
   walmartAPI.getWalmartData(req.params.game, response => {
     res.json(response);
   });
+})
+
+router.get('/twitter/:game', (req, res) => {
+  twitterAPI.getTwitterData(req.params.game, response => {
+    res.json(response);
+  })
 })
 
 module.exports = router;
