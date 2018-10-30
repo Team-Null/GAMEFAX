@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-walmart',
   templateUrl: './walmart.component.html',
-  styleUrls: ['./walmart.component.styl']
+  styleUrls: ['./walmart.component.scss']
 })
 export class WalmartComponent implements OnInit {
 

@@ -22,7 +22,7 @@ export class Search {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.styl'],
+  styleUrls: ['./home.component.scss'],
   providers: [Search]
 })
 

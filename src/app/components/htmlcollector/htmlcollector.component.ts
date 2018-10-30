@@ -5,7 +5,7 @@ import { APIControllerService } from '../../services/apicontroller.service';
 @Component({
   selector: 'app-htmlcollector',
   templateUrl: './htmlcollector.component.html',
-  styleUrls: ['./htmlcollector.component.styl']
+  styleUrls: ['./htmlcollector.component.scss']
 })
 export class HTMLCollectorComponent implements OnInit {
 

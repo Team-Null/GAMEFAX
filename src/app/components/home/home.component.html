@@ -1,22 +1,22 @@
-<div>
-  <body>
-    <h1 align="center">Home Page</h1>
-  </body>
-</div>
-<div align="center">
-
-<div class="form-group">
-    <label for="typeahead-http">Search:</label>
-    <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" 
-      [ngbTypeahead]="search" 
-      [inputFormatter]="formatter" 
-      [resultFormatter]="formatter" 
-      [showHint]="false" 
-      [editable]="false" 
-      placeholder="Search..." 
-      (selectItem)="showResults($event)"/>
-    <span *ngIf="searching">searching...</span>
-    <button class="btn btn-default" type="button" (click)="showResults(input)">Search</button>
-    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+<div class="container">
+  <div class="row justify-content-md-center my-3">
+      <h1>Home Page</h1>
   </div>
-  Passed Result: {{gameName}}
+  
+    <div class="form-group">
+      <div class="row justify-content-md-center my-3">
+        <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" 
+        [ngbTypeahead]="search" 
+        [inputFormatter]="formatter" 
+        [resultFormatter]="formatter" 
+        [showHint]="false" 
+        [editable]="false" 
+        placeholder="Search..." 
+        (selectItem)="showResults($event)"/>
+      </div>
+      <div class="row justify-content-md-center my-3">
+        <button class="btn btn-default" type="button" (click)="showResults(input)">Search</button>
+        <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+      </div>
+    </div>
+</div>

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
 import { APIControllerService } from './services/apicontroller.service';
@@ -36,7 +35,6 @@ import { TwitterComponent } from './components/twitter/twitter.component';
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    MatToolbarModule,
     AppRoutingModule,
     FormsModule,
     HttpClientJsonpModule,

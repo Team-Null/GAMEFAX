@@ -4,7 +4,7 @@ import { APIControllerService } from '../../services/apicontroller.service';
 @Component({
     selector: 'app-twitter',
     templateUrl: './twitter.component.html',
-    styleUrls: ['./twitter.component.styl']
+    styleUrls: ['./twitter.component.scss']
 })
 export class TwitterComponent implements OnInit {
     twitterData: Object;
