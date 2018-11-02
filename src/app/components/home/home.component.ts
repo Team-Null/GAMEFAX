@@ -28,8 +28,10 @@ export class Search {
 
 export class HomeComponent implements OnInit {
   model: any;
-  searching = false;
-  searchFailed = false;
+  searching: boolean = false;
+  searchFailed: boolean = false;
+
+  sidebarIsOpened: boolean = true;
 
   constructor(private searchList: Search, private apiController: APIControllerService, private router: Router) { }
   ngOnInit() {
@@ -57,4 +59,8 @@ export class HomeComponent implements OnInit {
     )
   
   formatter = (result: string) => result['name'] || '';
+
+  toggleSidebar() {
+    this.sidebarIsOpened = !this.sidebarIsOpened;
+  }
 }

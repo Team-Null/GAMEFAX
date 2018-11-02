@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SidebarModule } from 'ng-sidebar';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +39,8 @@ import { TwitterComponent } from './components/twitter/twitter.component';
     AppRoutingModule,
     FormsModule,
     HttpClientJsonpModule,
-    NgbModule
+    NgbModule,
+    SidebarModule.forRoot()
   ],
 
   providers: [APIControllerService],
