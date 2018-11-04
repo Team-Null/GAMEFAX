@@ -17,6 +17,7 @@ import { EbayComponent } from './components/ebay/ebay.component';
 import { YoutubeComponent } from './components/youtube/youtube.component';
 import { WalmartComponent } from './components/walmart/walmart.component';
 import { TwitterComponent } from './components/twitter/twitter.component';
+import { WebdataComponent } from './components/webdata/webdata.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TwitterComponent } from './components/twitter/twitter.component';
     EbayComponent,
     YoutubeComponent,
     WalmartComponent,
-    TwitterComponent
+    TwitterComponent,
+    WebdataComponent
   ],
 
   imports: [

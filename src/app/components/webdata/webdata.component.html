@@ -1,0 +1,14 @@
+<div *ngIf="webdataData != null">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">MetaCritic Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let webdataData of webdataData">
+                <td>{{webdataData[0]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

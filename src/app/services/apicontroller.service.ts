@@ -32,7 +32,13 @@ export class APIControllerService {
   getWalmartData() {
     return this.http.get("/api/walmart/" + this.gameName)
   }
+
   getTwitterData() {
     return this.http.get("/api/twitter/" + this.gameName)
+  }
+
+  getWebdataData() {
+    console.log("First Call --")
+    return this.http.get("/api/webdata/" + this.gameName)
   }
 }
