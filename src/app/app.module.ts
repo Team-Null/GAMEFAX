@@ -29,9 +29,8 @@ import { WebdataComponent } from './components/webdata/webdata.component';
     YoutubeComponent,
     WalmartComponent,
     TwitterComponent,
-    WebdataComponent
+    WebdataComponent,
   ],
-
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

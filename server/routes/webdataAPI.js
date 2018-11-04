@@ -13,9 +13,7 @@ module.exports.getWebdataData = async function(gameName, callback) {
         }
     }
     rp(options).then($ => {
-        console.log("TEST");
-        console.log($("span[id='metascore_w medium game positive']").text());
-        callback(($("span[id='metascore_w medium game positive']").text()));
+        callback($("span[id='metascore_w medium game positive']").text());
     }).catch(err => {
         console.log(err);
     })

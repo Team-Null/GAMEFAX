@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TwitterComponent } from './twitter.component';
 
-describe('WalmartComponent', () => {
+describe('TwitterComponent', () => {
   let component: TwitterComponent;
   let fixture: ComponentFixture<TwitterComponent>;
 

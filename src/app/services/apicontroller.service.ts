@@ -38,7 +38,6 @@ export class APIControllerService {
   }
 
   getWebdataData() {
-    console.log("First Call --")
     return this.http.get("/api/webdata/" + this.gameName)
   }
 }
