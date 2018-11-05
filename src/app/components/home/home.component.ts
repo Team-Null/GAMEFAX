@@ -31,7 +31,10 @@ export class HomeComponent implements OnInit {
   searching: boolean = false;
   searchFailed: boolean = false;
 
-  sidebarIsOpened: boolean = true;
+  sidebarIsOpened: boolean = false;
+  sidebarMode: String = "push";
+  sidebarPosition: String = "right";
+  sidebarCloseOnClickOutside: boolean = false;
 
   constructor(private searchList: Search, private apiController: APIControllerService, private router: Router) { }
   ngOnInit() {

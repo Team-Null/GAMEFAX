@@ -1,9 +1,22 @@
 <!-- Container for sidebar(s) + page content -->
 
-<ng-sidebar-container style="height: 100vh">
+<ng-sidebar-container>
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="sidebarIsOpened">
-    <p>Sidebar contents</p>
+  <ng-sidebar 
+    [(opened)]="sidebarIsOpened"
+    [mode]="sidebarMode"
+    [position]="sidebarPosition"
+    [closeOnClickOutside]="sidebarCloseOnClickOutside"
+    [sidebarClass]="'home-sidebar'"
+    [ariaLabel]="'Home Sidebar'">
+    <div class="sidebar-contents">
+      <h1>GAMEFAX</h1>
+      <hr>
+      <p>Home</p>
+      <p>Search</p>
+      <p>About</p>
+      <p>Team Null</p>
+    </div>
   </ng-sidebar>
 
   <!-- Page content -->
