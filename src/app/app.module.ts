@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { SidebarModule } from 'ng-sidebar';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +40,9 @@ import { TwitterComponent } from './components/twitter/twitter.component';
     AppRoutingModule,
     FormsModule,
     HttpClientJsonpModule,
-    NgbModule
+    NgbModule,
+    SidebarModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
 
   providers: [APIControllerService],
