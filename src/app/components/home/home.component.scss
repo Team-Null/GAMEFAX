@@ -23,6 +23,11 @@ ng-sidebar-container {
     color: white;
     margin: 0px;
 
+    video {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
     .gamefax-header {
         font-family: 'Hind', sans-serif;
         font-size: 10em;
@@ -40,7 +45,6 @@ ng-sidebar-container {
         color: white;
         position: relative;
         padding-bottom: 50px;
-
     }
 }
 
