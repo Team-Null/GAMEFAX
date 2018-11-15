@@ -20,12 +20,14 @@
       <thead>
       <tr>
         <th scope="col">Subreddit Name</th>
+        <th scope="col">IMAGE</th>
         <th scope="col">Subreddit's URL</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let redditSub of redditDataSub">
         <td>{{redditSub.data.display_name}}</td>
+        <td><img src="{{iconImage}}"></td>
         <td><a href="https://www.reddit.com{{redditSub.data.url}}" target="_blank">Link to Subreddit</a></td>
       </tr>
       </tbody>
