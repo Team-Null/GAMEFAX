@@ -14,6 +14,6 @@ module.exports.getTwitterData = async function(gameName, callback) {
         count: 10
     }, function(err, data, res) {
         callback(data);
-        console.log(data);
+        //console.log(data);
     });
 }

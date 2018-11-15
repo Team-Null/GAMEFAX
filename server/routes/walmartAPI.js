@@ -1,7 +1,7 @@
 const axios = require('axios');
 const walmartAPI= 'http://api.walmartlabs.com/v1/search?';
 const format= 'json';
-const categoryId= '2636';
+const categoryId= '2636_7899038';
 const numItems= '1';
 const apiKey= 'ebja9pfznmggge3h5ume33bz';
 
@@ -36,7 +36,7 @@ module.exports.getWalmartData = function(gameName, callback){
       walmartPayLoad.game_info[0].productUrl= response.data.items[0].productUrl;
       walmartPayLoad.game_info[0].salePrice= response.data.items[0].salePrice;
       //Lets me make sure the info I'm requesting is actually what I want.
-      console.log(walmartPayLoad.game_info[0]);
+      //console.log(walmartPayLoad.game_info[0]);
       // Returns JSON
       callback(walmartPayLoad);
     })
