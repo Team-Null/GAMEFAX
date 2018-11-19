@@ -46,7 +46,7 @@ router.get('/twitter/:game', (req, res) => {
 })
 
 router.get('/webdata/:game', (req, res) => {
-  webdataAPI.getWebdataData(req.params.game, response => {
+  webdataAPI.getWebdata(req.params.game, response => {
     res.json(response);
   })
 })

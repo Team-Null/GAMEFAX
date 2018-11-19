@@ -37,7 +37,7 @@ export class APIControllerService {
     return this.http.get("/api/twitter/" + this.gameName)
   }
 
-  getWebdataData() {
+  getWebdata() {
     return this.http.get("/api/webdata/" + this.gameName)
   }
 }

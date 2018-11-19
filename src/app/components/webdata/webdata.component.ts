@@ -7,13 +7,15 @@ import { APIControllerService } from '../../services/apicontroller.service';
     styleUrls: ['./webdata.component.scss']
 })
 export class WebdataComponent implements OnInit {
-    webdataData: Object;
-    
+    webdata: any;
+
     constructor(private apiController: APIControllerService) { }
 
     ngOnInit() {
-        this.apiController.getWebdataData().subscribe(data => {
-            this.webdataData[0] = data;
+        this.apiController.getWebdata().subscribe(data => {
+            console.log("Value: " + data[0][0]);
+            console.log("ValueTwo: " + data[1][0]);
+            this.webdata = data;
         })
     }
 }

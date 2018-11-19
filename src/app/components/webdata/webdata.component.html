@@ -1,13 +1,22 @@
-<div *ngIf="webdataData != null">
+<div *ngIf="webdata != null">
     <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">MetaCritic Score</th>
-            </tr>
+        <thead>  
         </thead>
         <tbody>
-            <tr *ngFor="let webdataData of webdataData">
-                <td>{{webdataData[0]}}</td>
+            <tr *ngFor="let item of webdata[0] ">
+                <td>{{item}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <h2 style="margin-left: 10px;">Game Info</h2>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of webdata[1]">
+                <td>{{item}}</td>
             </tr>
         </tbody>
     </table>
