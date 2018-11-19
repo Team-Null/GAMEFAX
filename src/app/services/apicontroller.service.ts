@@ -36,8 +36,12 @@ export class APIControllerService {
   getRedditData(){
     return this.http.get("/api/reddit/"+ this.gameName)
   }
-
+  
   getTwitterData() {
     return this.http.get("/api/twitter/" + this.gameName)
+  }
+
+  getWebdata() {
+    return this.http.get("/api/webdata/" + this.gameName)
   }
 }

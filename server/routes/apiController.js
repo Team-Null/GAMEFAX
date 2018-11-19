@@ -13,6 +13,7 @@ var ebayAPI= require('./ebayAPI');
 var walmartAPI= require('./walmartAPI');
 var redditAPI= require('./redditAPI');
 var twitterAPI = require('./twitterAPI');
+var webdataAPI = require('./webdataAPI');
 
 // Method for each respective API call
 router.get('/twitch/:game', (req, res) => { 
@@ -47,6 +48,12 @@ router.get('/reddit/:game', (req, res) => {
 
 router.get('/twitter/:game', (req, res) => {
   twitterAPI.getTwitterData(req.params.game, response => {
+    res.json(response);
+  })
+})
+
+router.get('/webdata/:game', (req, res) => {
+  webdataAPI.getWebdata(req.params.game, response => {
     res.json(response);
   })
 })

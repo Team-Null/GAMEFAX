@@ -19,6 +19,7 @@ import { EbayComponent } from './components/ebay/ebay.component';
 import { YoutubeComponent } from './components/youtube/youtube.component';
 import { WalmartComponent } from './components/walmart/walmart.component';
 import { TwitterComponent } from './components/twitter/twitter.component';
+import { WebdataComponent } from './components/webdata/webdata.component';
 import { RedditComponent } from './components/reddit/reddit.component';
 
 @NgModule({
@@ -31,9 +32,9 @@ import { RedditComponent } from './components/reddit/reddit.component';
     YoutubeComponent,
     WalmartComponent,
     TwitterComponent,
+    WebdataComponent,
     RedditComponent
   ],
-
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
