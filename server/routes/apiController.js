@@ -11,6 +11,7 @@ var twitchAPI = require('./twitchAPI');
 var youtubeAPI = require('./youtubeAPI');
 var ebayAPI= require('./ebayAPI');
 var walmartAPI= require('./walmartAPI');
+var redditAPI= require('./redditAPI');
 var twitterAPI = require('./twitterAPI');
 var webdataAPI = require('./webdataAPI');
 
@@ -35,6 +36,12 @@ router.get('/ebay/:game', (req, res) => {
 
 router.get('/walmart/:game', (req, res) => {
   walmartAPI.getWalmartData(req.params.game, response => {
+    res.json(response);
+  });
+})
+
+router.get('/reddit/:game', (req, res) => {
+  redditAPI.getRedditData(req.params.game, response => {
     res.json(response);
   });
 })

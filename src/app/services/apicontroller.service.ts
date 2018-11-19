@@ -33,6 +33,10 @@ export class APIControllerService {
     return this.http.get("/api/walmart/" + this.gameName)
   }
 
+  getRedditData(){
+    return this.http.get("/api/reddit/"+ this.gameName)
+  }
+  
   getTwitterData() {
     return this.http.get("/api/twitter/" + this.gameName)
   }

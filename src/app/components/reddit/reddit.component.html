@@ -1,0 +1,36 @@
+<div *ngIf="redditData != null">
+  <ng-container *ngIf="redditData.status === 0; else Success">
+    <p style="margin-left: 20px;">{{redditData.gameInput}} not found.</p>
+  </ng-container>
+
+  <ng-template #Success>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Thread Name</th>
+        <th scope="col">Thread URL</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let redditSearch of redditDataSearch">
+        <td>{{redditSearch.data.title}}</td>
+        <td><a href="https://www.reddit.com{{redditSearch.data.permalink}}" target="_blank">Review Thread URL</a></td>
+      </tr>
+      </tbody>
+      <thead>
+      <tr>
+        <th scope="col">Subreddit Name</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">Subreddit's URL</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let redditSub of redditDataSub">
+        <td>{{redditSub.data.display_name}}</td>
+        <td><img src="{{iconImage}}"></td>
+        <td><a href="https://www.reddit.com{{redditSub.data.url}}" target="_blank">Link to Subreddit</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>

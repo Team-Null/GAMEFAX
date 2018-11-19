@@ -1,22 +1,110 @@
-<div class="container">
-  <div class="row justify-content-md-center my-3">
-      <h1>Home Page</h1>
-  </div>
-  
-    <div class="form-group">
-      <div class="row justify-content-md-center my-3">
-        <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" 
-        [ngbTypeahead]="search" 
-        [inputFormatter]="formatter" 
-        [resultFormatter]="formatter" 
-        [showHint]="false" 
-        [editable]="false" 
-        placeholder="Search..." 
-        (selectItem)="showResults($event)"/>
-      </div>
-      <div class="row justify-content-md-center my-3">
-        <button class="btn btn-default" type="button" (click)="showResults(input)">Search</button>
-        <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container>
+  <!-- Sidebar -->
+  <ng-sidebar 
+    [(opened)]="sidebarIsOpened"
+    [mode]="sidebarMode"
+    [position]="sidebarPosition"
+    [closeOnClickOutside]="sidebarCloseOnClickOutside"
+    [autoCollapseOnInit]="autoCollapseOnInit"
+    [sidebarClass]="'home-sidebar'"
+    [ariaLabel]="'Home Sidebar'">
+    <div class="sidebar-contents">
+      <div class="row p-3 justify-content-center">
+        <div class="col">
+          <h1>Navigation</h1>
+          <hr>
+          <p>Home</p>
+          <p>Search</p>
+          <p>About</p>
+          <p>Team Null</p>
+        </div>
       </div>
     </div>
-</div>
+  </ng-sidebar>
+
+  <!-- Page content -->
+  <div ng-sidebar-content>
+    <div navbar>
+      <nav class="navbar navbar-dark fixed-top home-navbar">
+        <a class="navbar-brand" href="/home">GAMEFAX</a>
+        <button class="navbar-toggler" type="button" (click)="toggleSidebar()"> 
+          <span><i class="fa fa-bars fa-1x"></i></span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="carousel slide carousel-fade">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="view">
+            <video playsinline preload loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+              <source src="../../../assets/media/splash_media.mp4" type="video/mp4">
+            </video>
+            <div class="full-bg-img flex-center mask">
+              <div class="container-fluid">
+                <div class="row h-100 justify-content-center align-items-center">
+                  <div class="col">
+                    <h1 class="text-center my-auto gamefax-header">GAMEFAX</h1>
+                    <p class="lead text-center gamefax-info">The definitive hub of information dedicated to expediting the game buying process.</p>
+                    <div class="row justify-content-center pt-3">
+                      <div class="fixed-action-btn smooth-scroll">
+                        <a href="#search" class="btn btn-danger">Search<i class="fa fa-search ml-2"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid search-container" id="search">
+      <div class="row h-100 justify-content-around align-items-center">
+        <div class="col-8">
+          <h1 class="text-uppercase font-weight-bold text-center">Search</h1>
+          <div class="row justify-content-center mt-3 search-text">
+            <p class="lead text-center">Let us help you find your perfect game.</p>
+          </div>
+          <div class="form-group">
+            <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" 
+            [ngbTypeahead]="search" 
+            [inputFormatter]="formatter" 
+            [resultFormatter]="formatter" 
+            [showHint]="false" 
+            [editable]="false" 
+            placeholder="What game are you looking for?" 
+            (selectItem)="showResults($event)"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid about-container">
+      <div class="row h-100 justify-content-between align-items-center">
+        <div class="col-12">
+          <h1 class="text-uppercase font-weight-bold text-center">About</h1>
+          <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a dapibus mi. Donec volutpat lacus nisi, eu ornare erat rutrum ut. Ut consectetur neque eget vestibulum fermentum. Mauris consequat tempus lectus id tristique. Phasellus non orci at sem varius rutrum. Maecenas ullamcorper dignissim est maximus ullamcorper. Ut mattis sit amet mauris id posuere. Ut vel efficitur augue. Ut laoreet urna nec elit consectetur lobortis.</p>
+          <p class="text-center">Fusce fringilla ullamcorper porta. Curabitur eleifend eu mi ac accumsan. Etiam rutrum fringilla pretium. Donec ornare massa ac nulla ornare, vitae lacinia tellus vulputate. Integer commodo turpis eget aliquam malesuada. Donec ultricies feugiat urna, quis malesuada urna pellentesque eget. Vestibulum placerat eu sapien vitae pharetra. Proin eget rutrum nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed molestie lectus et sodales varius. Suspendisse ullamcorper condimentum neque et volutpat. Nullam pellentesque vehicula ligula, et porttitor enim eleifend vitae.</p>
+        </div>   
+      </div>
+    </div>
+
+    <footer class="page-footer font-small pt-4 footer-container">
+      <div class="container-fluid text-center text-md-left">
+        <div class="row">
+          <div class="col-md-12 mt-md-0 mt-3">
+            <h5 class="text-uppercase font-weight-bold">Team Null</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a dapibus mi. Donec volutpat lacus nisi, eu ornare erat rutrum ut. Ut consectetur neque eget vestibulum fermentum. Mauris consequat tempus lectus id tristique. Phasellus non orci at sem varius rutrum. Maecenas ullamcorper dignissim est maximus ullamcorper. Ut mattis sit amet mauris id posuere. Ut vel efficitur augue. Ut laoreet urna nec elit consectetur lobortis.</p>
+            <p>Fusce fringilla ullamcorper porta. Curabitur eleifend eu mi ac accumsan. Etiam rutrum fringilla pretium. Donec ornare massa ac nulla ornare, vitae lacinia tellus vulputate. Integer commodo turpis eget aliquam malesuada. Donec ultricies feugiat urna, quis malesuada urna pellentesque eget. Vestibulum placerat eu sapien vitae pharetra. Proin eget rutrum nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed molestie lectus et sodales varius. Suspendisse ullamcorper condimentum neque et volutpat. Nullam pellentesque vehicula ligula, et porttitor enim eleifend vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-team text-center py-3">
+        <a href="https://github.com/Team-Null">Team NULL Github</a>
+      </div>
+    </footer>
+  </div>
+</ng-sidebar-container>

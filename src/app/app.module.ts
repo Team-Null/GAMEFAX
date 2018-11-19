@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { SidebarModule } from 'ng-sidebar';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +20,7 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
 import { WalmartComponent } from './components/walmart/walmart.component';
 import { TwitterComponent } from './components/twitter/twitter.component';
 import { WebdataComponent } from './components/webdata/webdata.component';
+import { RedditComponent } from './components/reddit/reddit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { WebdataComponent } from './components/webdata/webdata.component';
     YoutubeComponent,
     WalmartComponent,
     TwitterComponent,
-    WebdataComponent
+    WebdataComponent,
+    RedditComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { WebdataComponent } from './components/webdata/webdata.component';
     AppRoutingModule,
     FormsModule,
     HttpClientJsonpModule,
-    NgbModule
+    NgbModule,
+    SidebarModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
 
   providers: [APIControllerService],
