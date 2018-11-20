@@ -13,8 +13,6 @@ export class WebdataComponent implements OnInit {
 
     ngOnInit() {
         this.apiController.getWebdata().subscribe(data => {
-            console.log("Value: " + data[0][0]);
-            console.log("ValueTwo: " + data[1][0]);
             this.webdata = data;
         })
     }
