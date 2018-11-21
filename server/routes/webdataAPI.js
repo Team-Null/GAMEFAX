@@ -15,7 +15,6 @@ module.exports.getWebdata = async function(gameName, callback) {
             return cheerio.load(body);
         }
     }
-    
     rp(options).then($ => {
         $('sup').remove();
         $("table[class='infobox hproduct'] > tbody > tr").toArray().map(item => {
@@ -40,9 +39,8 @@ module.exports.getWebdata = async function(gameName, callback) {
             }
         });
         i = 0;
-        $("table[class='infobox wikitable'] > tbody > tr").toArray().map(item => {
-            $('sup').remove();
-            $('th').remove();
+        $('th').remove();
+        $("table[class='infobox wikitable'] > tbody > tr").toArray().map(item => {    
             var value = $(item).text();
             if(value !== "" && /[0-9]/g.test(value)) {
                 scores[i] = value.replace(/[^0-9/.](?=[0-9/.])/g, "$& ");
@@ -50,11 +48,13 @@ module.exports.getWebdata = async function(gameName, callback) {
             }
         });
         description = $("table[class='infobox hproduct']").next().text();
+        image = $(".image").children().attr('src');
         
         webdata[0] = scores;
         webdata[1] = info;
         webdata[2] = description;
-        console.log(webdata[2]);
+        webdata[3] = image;
+
         callback(webdata);
     }).catch(err => {
         console.log(err);
