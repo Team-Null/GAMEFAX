@@ -51,8 +51,8 @@ export class HomeComponent implements OnInit {
       debounceTime(300),
       distinctUntilChanged(),
       tap(() => this.searching = true),
-      switchMap(item =>
-        this.searchList.getSearch(item).pipe(
+      switchMap(item => item.length < 4 ? []
+        : this.searchList.getSearch(item).pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;
@@ -61,7 +61,9 @@ export class HomeComponent implements OnInit {
         )),
         tap(() => this.searching = false)
     )
-  formatter = (result: string) => result['name'] || '';
+
+  formatter = (result: string) => 
+    result['name'] || '';
 
   toggleSidebar() {
     this.sidebarIsOpened = !this.sidebarIsOpened;

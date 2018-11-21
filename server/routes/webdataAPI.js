@@ -6,6 +6,7 @@ var webdata = [];
 var scores = [];
 var info = [];
 var description;
+var image;
 var i = 0;
 
 module.exports.getWebdata = async function(gameName, callback) {
@@ -15,12 +16,8 @@ module.exports.getWebdata = async function(gameName, callback) {
             return cheerio.load(body);
         }
     }
-    
     rp(options).then($ => {
         $('sup').remove();
-        console.log($("div[class='mw-parser-output'] > :nth-child(3)").text() + "<<<<<<<<<<<");
-        description = $("div[class='mw-parser-output'] > :nth-child(3)").text();
-        
         $("table[class='infobox hproduct'] > tbody > tr").toArray().map(item => {
             var value = $(item).text();
             if(value !== "" ) {
@@ -43,22 +40,22 @@ module.exports.getWebdata = async function(gameName, callback) {
             }
         });
         i = 0;
-        $("table[class='infobox wikitable'] > tbody > tr").toArray().map(item => {
-            $('sup').remove();
-            $('th').remove();
+        $('th').remove();
+        $("table[class='infobox wikitable'] > tbody > tr").toArray().map(item => {    
             var value = $(item).text();
             if(value !== "" && /[0-9]/g.test(value)) {
                 scores[i] = value.replace(/[^0-9/.](?=[0-9/.])/g, "$& ");
                 i++;
             }
         });
-        $('table').remove();
-        description = $("div[class='mw-parser-output'] > :nth-child(4)").text();
+        description = $("table[class='infobox hproduct']").next().text();
+        image = $(".image").children().attr('src');
         
         webdata[0] = scores;
         webdata[1] = info;
         webdata[2] = description;
-        console.log(webdata[2]);
+        webdata[3] = image;
+
         callback(webdata);
     }).catch(err => {
         console.log(err);
