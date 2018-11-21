@@ -18,9 +18,6 @@ module.exports.getWebdata = async function(gameName, callback) {
     
     rp(options).then($ => {
         $('sup').remove();
-        console.log($("div[class='mw-parser-output'] > :nth-child(3)").text() + "<<<<<<<<<<<");
-        description = $("div[class='mw-parser-output'] > :nth-child(3)").text();
-        
         $("table[class='infobox hproduct'] > tbody > tr").toArray().map(item => {
             var value = $(item).text();
             if(value !== "" ) {
@@ -52,8 +49,7 @@ module.exports.getWebdata = async function(gameName, callback) {
                 i++;
             }
         });
-        $('table').remove();
-        description = $("div[class='mw-parser-output'] > :nth-child(4)").text();
+        description = $("table[class='infobox hproduct']").next().text();
         
         webdata[0] = scores;
         webdata[1] = info;
