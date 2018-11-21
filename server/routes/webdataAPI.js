@@ -6,6 +6,7 @@ var webdata = [];
 var scores = [];
 var info = [];
 var description;
+var image;
 var i = 0;
 
 module.exports.getWebdata = async function(gameName, callback) {
