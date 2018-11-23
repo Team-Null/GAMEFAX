@@ -1,6 +1,6 @@
 <!-- If-Else-If Statement to handle Twitch JSON Status Codes
 Status Code 0: Game not found in Twitch Database -->
-<div *ngIf="twitchData != null">
+<div *ngIf="twitchData != null" class="main-div">
   <ng-container *ngIf="twitchData.status === 0; else NoStream">
     <p style="margin-left: 20px;">{{twitchData.gameInput}} not found.</p>
   </ng-container>

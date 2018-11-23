@@ -1,98 +1,74 @@
-<!-- Container for sidebar(s) + page content -->
-<ng-sidebar-container>
-  <!-- Sidebar -->
-  <ng-sidebar 
-    [(opened)]="sidebarIsOpened"
-    [mode]="sidebarMode"
-    [position]="sidebarPosition"
-    [closeOnClickOutside]="sidebarCloseOnClickOutside"
-    [autoCollapseOnInit]="autoCollapseOnInit"
-    [sidebarClass]="'home-sidebar'"
-    [ariaLabel]="'Home Sidebar'">
-    <div class="sidebar-contents">
-      <div class="row p-3 justify-content-center">
-        <div class="col">
-          <h1>Navigation</h1>
-          <hr>
-          <p>Home</p>
-          <p>Search</p>
-          <p>About</p>
-          <p>Team Null</p>
-        </div>
-      </div>
+<!-- Page content -->
+<nav class="navbar fixed-top navbar-dark">
+  <a class="navbar-brand" href="/home"><strong>GAMEFAX</strong></a>
+</nav>
+
+<div class="view" id="home">
+  <video playsinline preload loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+    <source src="../../../assets/media/splash_media.mp4" type="video/mp4">
+  </video>
+  <div class="full-bg-img flex-center mask">
+    <div class="container-fluid text-center white-text">
+      <h1 class="gamefax-header">GAMEFAX</h1>
+      <p class="lead gamefax-info">The definitive hub of information dedicated to expediting the game buying process.</p>
+      <br>
+      <a href="#search" class="btn btn-danger searchbtn">Search<i class="fa fa-search ml-2"></i></a>
     </div>
-  </ng-sidebar>
-
-  <!-- Page content -->
-  <div ng-sidebar-content>
-    <nav class="navbar fixed-top navbar-dark">
-      <a class="navbar-brand" href="/home"><strong>GAMEFAX</strong></a>
-      <button class="navbar-toggler" type="button" (click)="toggleSidebar()"> 
-        <span><i class="fa fa-bars fa-1x"></i></span>
-      </button>
-    </nav>
-
-    <div class="view">
-      <video playsinline preload loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
-        <source src="../../../assets/media/splash_media.mp4" type="video/mp4">
-      </video>
-      <div class="full-bg-img flex-center mask">
-        <div class="container-fluid text-center white-text wow fadeInUp">
-          <h1 class="gamefax-header">GAMEFAX</h1>
-          <p class="lead gamefax-info">The definitive hub of information dedicated to expediting the game buying process.</p>
-          <br>
-          <div class="fixed-action-btn smooth-scroll">
-            <a href="#search" class="btn btn-danger">Search<i class="fa fa-search ml-2"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid search-container" id="search">
-      <div class="row h-100 justify-content-around align-items-center">
-        <div class="col-8">
-          <h1 class="text-uppercase font-weight-bold text-center">Search</h1>
-          <div class="row justify-content-center mt-3 search-text">
-            <p class="lead text-center">Let us help you find your perfect game.</p>
-          </div>
-          <div class="form-group">
-            <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" 
-            [ngbTypeahead]="search" 
-            [inputFormatter]="formatter" 
-            [resultFormatter]="formatter" 
-            [showHint]="false" 
-            [editable]="false" 
-            placeholder="What game are you looking for?" 
-            (selectItem)="showResults($event)"/>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid about-container">
-      <div class="row h-100 justify-content-between align-items-center">
-        <div class="col-12">
-          <h1 class="text-uppercase font-weight-bold text-center">About</h1>
-          <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a dapibus mi. Donec volutpat lacus nisi, eu ornare erat rutrum ut. Ut consectetur neque eget vestibulum fermentum. Mauris consequat tempus lectus id tristique. Phasellus non orci at sem varius rutrum. Maecenas ullamcorper dignissim est maximus ullamcorper. Ut mattis sit amet mauris id posuere. Ut vel efficitur augue. Ut laoreet urna nec elit consectetur lobortis.</p>
-          <p class="text-center">Fusce fringilla ullamcorper porta. Curabitur eleifend eu mi ac accumsan. Etiam rutrum fringilla pretium. Donec ornare massa ac nulla ornare, vitae lacinia tellus vulputate. Integer commodo turpis eget aliquam malesuada. Donec ultricies feugiat urna, quis malesuada urna pellentesque eget. Vestibulum placerat eu sapien vitae pharetra. Proin eget rutrum nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed molestie lectus et sodales varius. Suspendisse ullamcorper condimentum neque et volutpat. Nullam pellentesque vehicula ligula, et porttitor enim eleifend vitae.</p>
-        </div>   
-      </div>
-    </div>
-
-    <footer class="page-footer font-small pt-4 footer-container">
-      <div class="container-fluid text-center text-md-left">
-        <div class="row">
-          <div class="col-md-12 mt-md-0 mt-3">
-            <h5 class="text-uppercase font-weight-bold">Team Null</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a dapibus mi. Donec volutpat lacus nisi, eu ornare erat rutrum ut. Ut consectetur neque eget vestibulum fermentum. Mauris consequat tempus lectus id tristique. Phasellus non orci at sem varius rutrum. Maecenas ullamcorper dignissim est maximus ullamcorper. Ut mattis sit amet mauris id posuere. Ut vel efficitur augue. Ut laoreet urna nec elit consectetur lobortis.</p>
-            <p>Fusce fringilla ullamcorper porta. Curabitur eleifend eu mi ac accumsan. Etiam rutrum fringilla pretium. Donec ornare massa ac nulla ornare, vitae lacinia tellus vulputate. Integer commodo turpis eget aliquam malesuada. Donec ultricies feugiat urna, quis malesuada urna pellentesque eget. Vestibulum placerat eu sapien vitae pharetra. Proin eget rutrum nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed molestie lectus et sodales varius. Suspendisse ullamcorper condimentum neque et volutpat. Nullam pellentesque vehicula ligula, et porttitor enim eleifend vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-team text-center py-3">
-        <a href="https://github.com/Team-Null">Team NULL Github</a>
-      </div>
-    </footer>
-    
   </div>
-</ng-sidebar-container>
+</div>
+
+<div class="container-fluid text-center search-container" id="search">
+  <div class="row h-100 justify-content-between align-items-center">
+    <div class="col-12 px-fixed">
+      <h1 class="text-uppercase font-weight-bold">Explore</h1>
+      <p class="lead">Let us help you find your perfect game. Explore our database of titles and find a large collection of information designed to help you find the best game for you. Whether that may be an exciting open-world single player title, or an intense online multiplayer arena shooter, GAMEFAX has all the information at your fingertips.</p>
+      <div class="form-group">
+        <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" 
+        [ngbTypeahead]="search" 
+        [inputFormatter]="formatter" 
+        [resultFormatter]="formatter" 
+        [showHint]="false" 
+        [editable]="false" 
+        placeholder="What game are you looking for?" 
+        (selectItem)="showResults($event)"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid recommend-container" id="recommend">
+  <div class="row h-100 px-fixed pb-4 justify-content-between align-items-center">
+    <div class="col-2">
+      <a href="result/God%20of%20War"><img src="../../../assets/images/GOW_Box.png" class="img-fluid" alt=""></a>
+    </div>
+    <div class="col-2">
+      <a href="result/Spider-Man"><img src="../../../assets/images/SM_Box.png" class="img-fluid" alt=""></a>
+    </div>
+    <div class="col-2">
+      <a href="result/Red%20Dead%20Redemption%202"><img src="../../../assets/images/RDR2_Box.png" class="img-fluid" alt=""></a>
+    </div>
+    <div class="col-6 recommend-text">
+      <h1 class="text-uppercase font-weight-bold text-left">Recommended Titles</h1>
+      <p class="text-left">There are plenty of amazing titles on the market. Open-world experiences can immerse players in a vast world full of life, stories, and adventures. Online multiplayer shooters can satisfy a player's excitement and thrill in a fast-paced, competitive environment. MMOs can challenge players to explore their worlds and uncover all of their many secrets and challenges.</p>
+      <p class="text-left">With so many great games, it could be hard to choose the right one. Let us help you by recommending some fantastic gaming experiences that have recently been released.</p>
+    </div>    
+  </div>
+</div>
+
+<div class="container-fluid about-container" id="about">
+  <div class="row h-100 px-fixed pb-4 justify-content-between align-items-center">
+    <div class="col-6 pr-5 about-text">
+      <h1 class="text-uppercase font-weight-bold text-right">About</h1>
+      <p class="text-right">GAMEFAX is designed to be a tool to help gamers spend less time deciding on what they want to play, and spend more time playing. There are so many games out on the market that it can be hard to find the next best experience to purchase. Money is important to everyone and we always want to make sure that we are making the right decision.</p>
+      <p class="text-right">That's where GAMEFAX comes in. We have designed a database system to collect all the information about any given title for you, so that you don't have to. Instead of spending countless time scouring the web for information about a game, let us do all the tedious work for you.</p>
+    </div>
+    <div class="col-6 pl-5">
+      <img src="../../../assets/images/Logos.png" class="img-fluid" alt="">
+    </div>    
+  </div>
+</div>
+
+<div class="footer-copyright text-center white-text py-3">
+  <a href="https://github.com/Team-Null" target="_blank">CS-4800: Team NULL</a> | 
+  <a href="https://www.cpp.edu/" target="_blank">Cal Poly Pomona</a>
+</div>

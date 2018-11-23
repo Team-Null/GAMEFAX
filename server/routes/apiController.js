@@ -14,6 +14,7 @@ var walmartAPI= require('./walmartAPI');
 var redditAPI= require('./redditAPI');
 var twitterAPI = require('./twitterAPI');
 var webdataAPI = require('./webdataAPI');
+var wallpaperAPI = require('./wallpaperAPI');
 
 // Method for each respective API call
 router.get('/twitch/:game', (req, res) => { 
@@ -54,6 +55,12 @@ router.get('/twitter/:game', (req, res) => {
 
 router.get('/webdata/:game', (req, res) => {
   webdataAPI.getWebdata(req.params.game, response => {
+    res.json(response);
+  })
+})
+
+router.get('/wallpaper/:game', (req, res) => {
+  wallpaperAPI.getGameWallpaper(req.params.game, response => {
     res.json(response);
   })
 })

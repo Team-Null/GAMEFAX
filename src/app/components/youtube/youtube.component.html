@@ -1,4 +1,4 @@
-<div *ngIf="youtubeData != null">
+<div *ngIf="youtubeData != null" class="main-div">
   <ng-container *ngIf="youtubeData.status === 0; else Success">
     <p style="margin-left: 20px;">{{youtubeData.gameInput}} not found.</p>
   </ng-container>

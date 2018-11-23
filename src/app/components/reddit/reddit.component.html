@@ -1,4 +1,4 @@
-<div *ngIf="redditData != null">
+<div *ngIf="redditData != null" class="main-div">
   <ng-container *ngIf="redditData.status === 0; else Success">
     <p style="margin-left: 20px;">{{redditData.gameInput}} not found.</p>
   </ng-container>

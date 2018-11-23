@@ -1,43 +1,51 @@
 <!-- HTMLCollector Component which collects every API component and displays it on one page -->
 <!-- Add more API components to the list when needed -->
-<div>
-  <body>
-    <h1 align="center">HTMLCollector Page</h1>
-    <h2 align="center">Current game: {{gameName}}</h2>
-  </body>
+<nav class="navbar fixed-top navbar-dark">
+  <a class="navbar-brand" href="/home"><strong>GAMEFAX</strong></a>
+</nav>
+
+<div class="view" id="game-header">
+  <img src="{{gameWallpaper.url}}" class="img-fluid" alt="">
+  <div class="full-bg-img flex-center mask">
+    <div class="container-fluid text-center white-text">
+      <h1 class="game-header">{{gameName}}</h1>
+    </div>
+  </div>
 </div>
 
-<div>
-  <h2 style="margin-left: 10px;">Top Twitch Streams for {{gameName}}</h2>
-  <app-twitch></app-twitch>
+<div class="data-section">
+  <h2 style="margin-left: 10px;">Game Reviews for {{gameName}}</h2>
+  <app-webdata></app-webdata>
 </div>
 
-<div>
-  <h2 style="margin-left: 10px;">YouTube Reviews for {{gameName}}</h2>
-  <app-youtube></app-youtube>
-</div>
-
-<div>
+<div class="buying-section">
   <h2 style="margin-left: 10px;">Ebay Search for {{gameName}}</h2>
   <app-ebay></app-ebay>
-</div>
-
-<div>
   <h2 style="margin-left: 10px;">Walmart Search for {{gameName}}</h2>
   <app-walmart></app-walmart>
 </div>
 
-<div>
+<div class="twitch-section">
+  <h2 style="margin-left: 10px;">Top Twitch Streams for {{gameName}}</h2>
+  <app-twitch></app-twitch>
+</div>
+
+<div class="youtube-section">
+  <h2 style="margin-left: 10px;">YouTube Reviews for {{gameName}}</h2>
+  <app-youtube></app-youtube>
+</div>
+
+<div class="reddit-section">
   <h2 style="margin-left: 10px;">Reddit Search for {{gameName}}</h2>
   <app-reddit></app-reddit>
 </div>
 
-<div>
+<div class="twitter-section">
   <h2 style="margin-left: 10px;">Popular tweets for {{gameName}}</h2>
   <app-twitter></app-twitter>
 </div>
 
-<div>
-  <h2 style="margin-left: 10px;">Game Reviews for {{gameName}}</h2>
-  <app-webdata></app-webdata>
+<div class="footer-copyright text-center white-text py-3">
+  <a href="https://github.com/Team-Null" target="_blank">CS-4800: Team NULL</a> | 
+  <a href="https://www.cpp.edu/" target="_blank">Cal Poly Pomona</a>
 </div>
