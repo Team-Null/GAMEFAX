@@ -1,5 +1,6 @@
-const GoogleImages = require('google-images');
-const client = new GoogleImages('016298205089907193700:hlpjlqvg6dk', 'AIzaSyDxSZhdetEKtyR7WktMBYX-8M01QTJr0N8');
+const axios = require('axios');
+const alphaCodersAPI = 'https://wall.alphacoders.com/api2.0/get.php';
+const apiKey = '2c37a019b841659379bc0de943dbc0af';
 
 var wallpaperPayload;
 
@@ -8,14 +9,19 @@ module.exports.getGameWallpaper = async function(gameName, callback) {
   wallpaperPayload = {};
 
   try {
-    var images = await client.search(gameName + " wallpaper 4k", {type: 'photo'});
+    var images = await axios.get(alphaCodersAPI, {
+      params: {
+          'auth': apiKey,
+          'method': "search",
+          'term': gameName
+      }
+    });
 
     if(images.length == 0) {
         throw "Wallpapers not found.";
     }
 
-    wallpaperPayload["url"] = images[0].url;
-    console.log(wallpaperPayload.url);
+    wallpaperPayload["url"] = images.data.wallpapers[0].url_image;
     callback(wallpaperPayload);
   } 
   catch(error) {
