@@ -11,7 +11,7 @@ module.exports.getTwitterData = async function(gameName, callback) {
         q: gameName,
         result_type: 'popular',
         lang: "en",
-        count: 10
+        count: 4
     }, function(err, data, res) {
         callback(data);
     });

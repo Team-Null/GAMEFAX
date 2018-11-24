@@ -1,20 +1,12 @@
-<div *ngIf="walmartData != null" class="main-div">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Game Name</th>
-        <th scope="col">Product Picture</th>
-        <th scope="col">URL</th>
-        <th scope="col">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let walmartData of walmartData">
-        <td>{{walmartData.name}}</td>
-        <td><img src="{{walmartData.thumbnailImage}}" style="width:75px;height:75px;"></td>
-        <td><a href="{{walmartData.productUrl}}" target="_blank">Walmart Item URL</a></td>
-        <td>{{walmartData.salePrice}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf="walmartData != null">
+  <div class="row justify-content-left align-items-center">
+    <div class="col-4">
+        <img src="{{walmartData[0].largeImage}}" style="height: 200px">
+    </div>
+    <div class="col-8">
+      <h1 class="text-uppercase font-weight-bold">Walmart</h1>
+      <p class="text-left">{{walmartData[0].name}}</p>
+      <a href="{{walmartData[0].productUrl}}" target="_blank"><button class="btn dark">Buy Now<i class="fa fa-dollar mx-1"></i>{{walmartData[0].salePrice}}</button></a>
+    </div>
+  </div>
 </div>

@@ -55,5 +55,6 @@ export class HomeComponent implements OnInit {
         )),
         tap(() => this.searching = false)
     )
+
   formatter = (result: string) => result['name'] || '';
 }

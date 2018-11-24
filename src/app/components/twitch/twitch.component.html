@@ -1,38 +1,38 @@
 <!-- If-Else-If Statement to handle Twitch JSON Status Codes
 Status Code 0: Game not found in Twitch Database -->
-<div *ngIf="twitchData != null" class="main-div">
+<div *ngIf="twitchData != null">
   <ng-container *ngIf="twitchData.status === 0; else NoStream">
-    <p style="margin-left: 20px;">{{twitchData.gameInput}} not found.</p>
+    <div class="row px-fixed justify-content-between align-items-center">
+      <div class="col">
+        <h1 class="text-uppercase font-weight-bold text-center">No streams found for {{twitchData.gameInput}}.</h1>
+      </div>
+    </div>
   </ng-container>
   
   <!-- Status Code 1: Game found in database but no streams are currently live -->
   <ng-template #NoStream>
     <ng-container *ngIf="twitchData.status === 1; else Success">
-      <p style="margin-left: 20px;">No streams found for {{twitchData.gameInput}}.</p>
+      <div class="row px-fixed justify-content-between align-items-center">
+        <div class="col">
+          <h1 class="text-uppercase font-weight-bold text-center">No streams found for {{twitchData.gameInput}}.</h1>
+        </div>
+      </div>
     </ng-container>
   </ng-template>
   
   <!-- Status Code 2: Game found and live streams to display. Success -->
   <ng-template #Success>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Channel URL</th>
-          <th scope="col">Profile Image</th>
-          <th scope="col">Thumbnail</th>
-          <th scope="col">Title</th>
-          <th scope="col">Viewer Count</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let twitchDataStreams of twitchDataStreams">
-          <td><a href="https://www.twitch.tv/{{twitchDataStreams.display_name}}" target="_blank">{{twitchDataStreams.display_name}}</a></td>
-          <td><img src="{{twitchDataStreams.profile_image_url}}" style="width:75px;height:75px;"></td>
-          <td><img src="{{twitchDataStreams.thumbnail_url}}"></td>
-          <td>{{twitchDataStreams.title}}</td>
-          <td>{{twitchDataStreams.viewer_count}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="row px-fixed justify-content-around align-items-center">
+      <div class="col-2" *ngFor="let twitchDataStreams of twitchDataStreams">
+        <div class="card">
+          <a href="https://www.twitch.tv/{{twitchDataStreams.display_name}}"><img class="card-img-top thumbnail" src="{{twitchDataStreams.thumbnail_url}}" height="141px" width="250px"></a>
+          <div class="card-body body-text">
+            <h5 class="card-title text-uppercase font-weight-bold"><a href="https://www.twitch.tv/{{twitchDataStreams.display_name}}" target="_blank" class="display-name">{{twitchDataStreams.display_name}}</a></h5>
+            <p class="card-text font-weight-bold">{{twitchDataStreams.title}}</p>
+            <p class="card-text font-weight-bold viewers">{{twitchDataStreams.viewer_count}} viewers!</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </ng-template>
 </div>

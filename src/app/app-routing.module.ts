@@ -4,7 +4,6 @@ import { HomeComponent } from './components/home/home.component';
 import { HTMLCollectorComponent } from './components/htmlcollector/htmlcollector.component';
 
 // Module to handle website routing
-
 const routes: Routes = [
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
@@ -20,7 +19,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
+    })],
     exports: [RouterModule]
   })
+
   export class AppRoutingModule { }

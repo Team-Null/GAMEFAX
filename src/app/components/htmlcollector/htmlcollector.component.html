@@ -8,40 +8,78 @@
   <img src="{{gameWallpaper.url}}" class="img-fluid" alt="">
   <div class="full-bg-img flex-center mask">
     <div class="container-fluid text-center white-text">
-      <h1 class="game-header">{{gameName}}</h1>
+      <h1 class="game-header text-uppercase">{{gameName}}</h1>
     </div>
   </div>
 </div>
 
-<div class="data-section">
-  <h2 style="margin-left: 10px;">Game Reviews for {{gameName}}</h2>
+<div class="container-fluid info-section">
+  <div class="row px-fixed justify-content-center align-items-center">
+    <div class="col-10 buying-text">
+      <h1 class="text-uppercase pt-4 font-weight-bold text-center walmart-title">At A Glance</h1>
+      <p class="text-center mb-4 walmart-desc">We found plenty of information on {{gameName}}. Here is some general info to get you started.</p>
+    </div>
+  </div>
   <app-webdata></app-webdata>
 </div>
 
-<div class="buying-section">
-  <h2 style="margin-left: 10px;">Ebay Search for {{gameName}}</h2>
-  <app-ebay></app-ebay>
-  <h2 style="margin-left: 10px;">Walmart Search for {{gameName}}</h2>
-  <app-walmart></app-walmart>
+<div class="container-fluid buying-section">
+  <div class="row px-fixed justify-content-center align-items-center">
+    <div class="col-10 buying-text">
+      <h1 class="text-uppercase font-weight-bold text-center walmart-title">Where to buy?</h1>
+      <p class="text-center mb-4 walmart-desc">There are plenty of outlets for you to buy games at various price points. Here are a few options to choose from.</p>
+    </div>
+  </div>
+  <div class="row px-fixed justify-content-around align-items-center">
+    <div class="col-5 walmart-text">
+      <app-walmart></app-walmart>
+    </div>
+    <div class="col-5 ebay-text">
+      <app-ebay></app-ebay>
+    </div>  
+  </div>
 </div>
 
-<div class="twitch-section">
-  <h2 style="margin-left: 10px;">Top Twitch Streams for {{gameName}}</h2>
+<div class="container-fluid twitch-section">
+  <div class="row px-fixed justify-content-center align-items-center">
+    <div class="col-10 mt-4 twitch-text">
+      <h1 class="text-uppercase font-weight-bold text-center">Twitch Live Streams</h1>
+      <p class="text-center mb-4">Twitch is a live video streaming website for viewers to come and watch gameplay of their favorite games. In order to get a better feel for {{gameName}}, check out some of the streamers playing it right now!</p>
+    </div>
+  </div>
   <app-twitch></app-twitch>
 </div>
 
-<div class="youtube-section">
-  <h2 style="margin-left: 10px;">YouTube Reviews for {{gameName}}</h2>
+<div class="container-fluid youtube-section">
+  <div class="row px-fixed justify-content-center align-items-center">
+    <div class="col-10 mt-4 youtube-text">
+      <h1 class="text-uppercase font-weight-bold text-center">YouTube Reviews</h1>
+      <p class="text-center mb-4">YouTube lets content creators share their opinions on games they've played. Want to hear a second opinion? Check out some of the most viewed YouTube reviews for {{gameName}} below to get a better idea.</p>
+    </div>
+  </div>
   <app-youtube></app-youtube>
 </div>
 
-<div class="reddit-section">
-  <h2 style="margin-left: 10px;">Reddit Search for {{gameName}}</h2>
-  <app-reddit></app-reddit>
+<div class="container-fluid reddit-section">
+  <div class="row h-100 px-fixed pb-4 justify-content-between align-items-center">
+    <div class="col-6 pr-5 reddit-text">
+      <h1 class="text-uppercase font-weight-bold text-right">Reddit Community</h1>
+      <p class="text-right">Reddit is a social news aggregration, web content rating, and discussion website. It is filled with tons of resources for individuals looking to find the next game to play.</p>
+      <p class="text-right">Check out one of the many game reviews for {{gameName}} and even take a look at their official subreddit. There is plenty of information waiting for you to explore, as well as a multitude of active users who would love to make further recommendations, share exciting moments, and discuss the game over on Reddit.</p>
+    </div>
+    <div class="col-6 py-4 subreddit-text">
+      <app-reddit></app-reddit>
+    </div>    
+  </div>
 </div>
 
-<div class="twitter-section">
-  <h2 style="margin-left: 10px;">Popular tweets for {{gameName}}</h2>
+<div class="container-fluid twitter-section">
+  <div class="row px-fixed justify-content-center align-items-center">
+    <div class="col-10 mt-4 twitter-text">
+      <h1 class="text-uppercase font-weight-bold text-center">Twitter</h1>
+      <p class="text-center mb-4">Twitter lets individuals share their most update to date thoughts, ideas, and opinions. Whether they are from anyone who is playing the game, a gaming organization, or the actual developers themselves, find out what people are saying about {{gameName}}.</p>
+    </div>
+  </div>
   <app-twitter></app-twitter>
 </div>
 
