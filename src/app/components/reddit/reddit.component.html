@@ -1,36 +1,25 @@
 <div *ngIf="redditData != null">
   <ng-container *ngIf="redditData.status === 0; else Success">
-    <p style="margin-left: 20px;">{{redditData.gameInput}} not found.</p>
+    <div class="row px-fixed justify-content-between align-items-center">
+      <div class="col">
+        <h1 class="text-uppercase font-weight-bold text-center">No information found for {{redditData[0].gameInput}}.</h1>
+      </div>
+    </div>
   </ng-container>
 
   <ng-template #Success>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th scope="col">Thread Name</th>
-        <th scope="col">Thread URL</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let redditSearch of redditDataSearch">
-        <td>{{redditSearch.data.title}}</td>
-        <td><a href="https://www.reddit.com{{redditSearch.data.permalink}}" target="_blank">Review Thread URL</a></td>
-      </tr>
-      </tbody>
-      <thead>
-      <tr>
-        <th scope="col">Subreddit Name</th>
-        <th scope="col">IMAGE</th>
-        <th scope="col">Subreddit's URL</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let redditSub of redditDataSub">
-        <td>{{redditSub.data.display_name}}</td>
-        <td><img src="{{iconImage}}"></td>
-        <td><a href="https://www.reddit.com{{redditSub.data.url}}" target="_blank">Link to Subreddit</a></td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-6">
+        <a href="https://www.reddit.com{{redditDataSub[0].data.url}}" target="_blank">
+          <img src="{{iconImage}}" class="img-fluid center">
+          <p class="text-center">Subreddit - r/{{redditDataSub[0].data.display_name}}</p>
+        </a>
+      </div>
+      <div class="col-6 subreddit-info">
+        <h1 class="font-weight-bold">Review and Discussion Thread</h1>
+        <p>{{redditDataSearch[0].data.title}}</p>
+        <a href="https://www.reddit.com{{redditDataSearch[0].data.permalink}}" target="_blank"><button class="btn dark">Read Now<i class="fa fa-book ml-2"></i></button></a>
+      </div>
+    </div>
   </ng-template>
 </div>

@@ -11,7 +11,7 @@ export class RedditComponent implements OnInit {
   redditData: Object;
   redditDataSearch: Object;
   redditDataSub: Object;
-  iconImage: string;
+  iconImage: String;
 
   constructor(private apiController: APIControllerService) { }
 

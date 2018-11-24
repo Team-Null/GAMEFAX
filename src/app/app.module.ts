@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { SidebarModule } from 'ng-sidebar';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +43,6 @@ import { RedditComponent } from './components/reddit/reddit.component';
     FormsModule,
     HttpClientJsonpModule,
     NgbModule,
-    SidebarModule.forRoot(),
     MDBBootstrapModule.forRoot()
   ],
 

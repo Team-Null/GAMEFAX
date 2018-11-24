@@ -44,4 +44,8 @@ export class APIControllerService {
   getWebdata() {
     return this.http.get("/api/webdata/" + this.gameName)
   }
+
+  getGameWallpaper() {
+    return this.http.get("/api/wallpaper/" + this.gameName)
+  }
 }

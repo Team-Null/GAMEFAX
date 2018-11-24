@@ -10,7 +10,7 @@ var walmartPayLoad={
   "game_info":[
     {
       "name": '',
-      "thumbnailImage": '',
+      "largeImage": '',
       "productUrl": '',
       "salePrice": ''
     }
@@ -32,7 +32,7 @@ module.exports.getWalmartData = function(gameName, callback){
   //Stores info about the game into the JSON object.
     .then(response=>{
       walmartPayLoad.game_info[0].name= response.data.items[0].name;
-      walmartPayLoad.game_info[0].thumbnailImage= response.data.items[0].thumbnailImage;
+      walmartPayLoad.game_info[0].largeImage= response.data.items[0].largeImage;
       walmartPayLoad.game_info[0].productUrl= response.data.items[0].productUrl;
       walmartPayLoad.game_info[0].salePrice= response.data.items[0].salePrice;
       //Lets me make sure the info I'm requesting is actually what I want.
