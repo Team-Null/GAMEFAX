@@ -5,6 +5,8 @@ const wikiUrl = 'https://en.wikipedia.org/wiki/';
 var webdata = [];
 var scores = [];
 var info = [];
+var description;
+var image;
 var i = 0;
 
 module.exports.getWebdata = async function(gameName, callback) {
@@ -15,6 +17,7 @@ module.exports.getWebdata = async function(gameName, callback) {
         }
     }
     rp(options).then($ => {
+        $('sup').remove();
         $("table[class='infobox hproduct'] > tbody > tr").toArray().map(item => {
             var value = $(item).text();
             if(value !== "" ) {
@@ -37,22 +40,26 @@ module.exports.getWebdata = async function(gameName, callback) {
             }
         });
         i = 0;
-        $('sup').remove();
         $('th').remove();
-        $("table[class='infobox wikitable'] > tbody > tr").toArray().map(item => {
+        $("table[class='infobox wikitable'] > tbody > tr").toArray().map(item => {    
             var value = $(item).text();
             if(value !== "" && /[0-9]/g.test(value)) {
                 scores[i] = value.replace(/[^0-9/.](?=[0-9/.])/g, "$& ");
                 i++;
             }
         });
+        description = $("table[class='infobox hproduct']").next().text();
+        image = $(".image").children().attr('src');
+        
         webdata[0] = scores;
         webdata[1] = info;
-        console.log("2D array: " + webdata[1][1])
+        webdata[2] = description;
+        webdata[3] = image;
+
         callback(webdata);
     }).catch(err => {
         console.log(err);
-    })
+    });
     scores = [];
     info = [];
     i = 0;
