@@ -8,12 +8,14 @@ import { APIControllerService } from '../../services/apicontroller.service';
 })
 export class TwitterComponent implements OnInit {
     twitterData: Object;
+    gameName: String;
     
     constructor(private apiController: APIControllerService) {}
 
     ngOnInit() {
         this.apiController.getTwitterData().subscribe(data => {
-            this.twitterData = data["statuses"];
+            this.twitterData = data;
+            this.gameName = data["game"];
         })
     }
 }

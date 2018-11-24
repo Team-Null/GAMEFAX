@@ -2,7 +2,7 @@
 Status Code 0: Game not found in Twitch Database -->
 <div *ngIf="twitchData != null">
   <ng-container *ngIf="twitchData.status === 0; else NoStream">
-    <div class="row px-fixed justify-content-between align-items-center">
+    <div class="row h-100 px-fixed justify-content-between align-items-center">
       <div class="col">
         <h1 class="text-uppercase font-weight-bold text-center">No streams found for {{twitchData.gameInput}}.</h1>
       </div>
@@ -12,7 +12,7 @@ Status Code 0: Game not found in Twitch Database -->
   <!-- Status Code 1: Game found in database but no streams are currently live -->
   <ng-template #NoStream>
     <ng-container *ngIf="twitchData.status === 1; else Success">
-      <div class="row px-fixed justify-content-between align-items-center">
+      <div class="row h-100 px-fixed justify-content-between align-items-center">
         <div class="col">
           <h1 class="text-uppercase font-weight-bold text-center">No streams found for {{twitchData.gameInput}}.</h1>
         </div>

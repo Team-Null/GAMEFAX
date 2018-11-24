@@ -1,6 +1,6 @@
 <div *ngIf="redditData != null">
   <ng-container *ngIf="redditData.status === 0; else Success">
-    <div class="row px-fixed justify-content-between align-items-center">
+    <div class="row h-100 px-fixed justify-content-between align-items-center">
       <div class="col">
         <h1 class="text-uppercase font-weight-bold text-center">No information found for {{redditData[0].gameInput}}.</h1>
       </div>

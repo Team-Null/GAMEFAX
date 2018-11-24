@@ -1,17 +1,27 @@
 <div *ngIf="twitterData != null">
-  <div class="container">
-    <div class="row h-100 px-fixed justify-content-around align-items-center">
-      <div class="col-3" *ngFor="let twitterData of twitterData">
-        <div class="card">
-          <div class="card-body">
-            <a href="https://twitter.com/{{twitterData.user.screen_name}}" target="_blank"><img src="{{twitterData.user.profile_image_url}}" class="center"></a>
-            <h3 class="card-title text-center">{{twitterData.user.name}}</h3>
-            <p class="card-text">{{twitterData.text}}</p>
-            <p class="card-text">{{twitterData.created_at}}</p>
-            <a href="https://twitter.com/i/web/status/{{twitterData.id_str}}" target="_blank"><button class="btn dark">Full Tweet<i class="fa fa-twitter ml-2"></i></button></a>
+  <ng-container *ngIf="twitterData.status === 0; else Success">
+    <div class="row h-100 px-fixed justify-content-between align-items-center">
+      <div class="col">
+        <h1 class="text-uppercase font-weight-bold text-center">No recent twitter activity found for {{gameName}}.</h1>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #Success>
+    <div class="container">
+      <div class="row h-100 px-fixed justify-content-center align-items-center">
+        <div class="col-3" *ngFor="let twitterData of twitterData.data.statuses">
+          <div class="card">
+            <div class="card-body">
+              <a href="https://twitter.com/{{twitterData.user.screen_name}}" target="_blank"><img src="{{twitterData.user.profile_image_url}}" class="center"></a>
+              <h3 class="card-title text-center">{{twitterData.user.name}}</h3>
+              <p class="card-text">{{twitterData.text}}</p>
+              <p class="card-text">{{twitterData.created_at}}</p>
+              <a href="https://twitter.com/i/web/status/{{twitterData.id_str}}" target="_blank"><button class="btn dark">Full Tweet<i class="fa fa-twitter ml-2"></i></button></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>

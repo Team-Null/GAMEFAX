@@ -10,7 +10,7 @@ import { APIControllerService } from '../../services/apicontroller.service';
 export class HTMLCollectorComponent implements OnInit {
 
   gameName: String;
-  gameWallpaper: Object;
+  gameWallpaper: String;
 
   constructor(private activateRoute: ActivatedRoute, private apiController: APIControllerService) { }
 
@@ -20,7 +20,7 @@ export class HTMLCollectorComponent implements OnInit {
       //Results page reapplies the game name to the apiController after every page refresh
       this.apiController.setGame(params.game);
       this.apiController.getGameWallpaper().subscribe(data => {
-        this.gameWallpaper = data;
+        this.gameWallpaper = data["url"];
       })
     });
   }
