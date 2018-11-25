@@ -12,6 +12,30 @@ td {
     font-size: 16px;
 }
 
+.info-row {
+    height: 380px;
+
+    .game-desc {
+        display: block;
+        max-height: 305px;
+        margin: 0 auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .game-info {
+        max-height: 320px;
+    }
+
+    .game-reviews {
+        max-height: 301px;
+    }
+
+    .col-fixed {
+        height: 380px;
+    }
+}
+
 .info-text {
     color: #292929;
     font-size: 20px;

@@ -1,26 +1,26 @@
 <div *ngIf="webdata != null">
-    <div class="row h-100 px-fixed justify-content-between align-items-start">
-        <div class="col-2">
+    <div class="row px-fixed justify-content-between align-items-start info-row">
+        <div class="col-2 col-fixed">
              <img src="{{gameImgSrc}}">
         </div>
-        <div class="col-4">
+        <div class="col-4 col-fixed">
             <h1 class="text-left font-weight-bold">Description</h1>
-            <p>{{gameDesc}}</p>
+            <p class="game-desc">{{gameDesc}}</p>
         </div>
-        <div class="col-3">
+        <div class="col-3 col-fixed">
             <h1 class="text-left font-weight-bold">Information</h1>
             <table class="table table-striped table-sm">
-                <tbody>
+                <tbody class="game-info">
                     <tr *ngFor="let item of gameInfo">
                         <td>{{item}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-3">
+        <div class="col-3 col-fixed">
             <h1 class="text-left font-weight-bold">Review Scores</h1>
             <table class="table table-striped table-sm">
-                <tbody>
+                <tbody class="game-reviews">
                     <tr *ngFor="let item of gameReviews">
                         <td>{{item}}</td>
                     </tr>
