@@ -28,9 +28,21 @@ button {
         color: #292929;
         font-size: 20px;
         font-weight: bold;
+        max-height: 48px;
+        overflow: hidden;
     }
 
     .card-text {
         font-size: 14px;
+    }
+
+    .tweet-text {
+        display: block;
+        max-height: 105px;
+        overflow: hidden;
+    }
+
+    .date-text {
+        font-size: 12px;
     }
 }

@@ -30,6 +30,8 @@
 
         .video-title {
             color: rgb(175, 175, 175);
+            max-height: 63px;
+            overflow: hidden;
         }
     }
 }

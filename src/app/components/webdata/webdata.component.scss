@@ -34,6 +34,11 @@ td {
     .col-fixed {
         height: 380px;
     }
+
+    .info-table, .review-table {
+        max-height: 357px;
+        overflow: hidden;
+    }
 }
 
 .info-text {

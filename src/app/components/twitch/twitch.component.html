@@ -25,10 +25,10 @@ Status Code 0: Game not found in Twitch Database -->
     <div class="row px-fixed justify-content-around align-items-center">
       <div class="col-2" *ngFor="let twitchDataStreams of twitchDataStreams">
         <div class="card">
-          <a href="https://www.twitch.tv/{{twitchDataStreams.display_name}}"><img class="card-img-top thumbnail" src="{{twitchDataStreams.thumbnail_url}}" height="141px" width="250px"></a>
+          <a href="https://www.twitch.tv/{{twitchDataStreams.display_name}} " target="_blank"><img class="card-img-top thumbnail" src="{{twitchDataStreams.thumbnail_url}}" height="141px" width="250px"></a>
           <div class="card-body body-text">
             <h5 class="card-title text-uppercase font-weight-bold"><a href="https://www.twitch.tv/{{twitchDataStreams.display_name}}" target="_blank" class="display-name">{{twitchDataStreams.display_name}}</a></h5>
-            <p class="card-text font-weight-bold">{{twitchDataStreams.title}}</p>
+            <p class="card-text font-weight-bold stream-title">{{twitchDataStreams.title}}</p>
             <p class="card-text font-weight-bold viewers">{{twitchDataStreams.viewer_count}} viewers!</p>
           </div>
         </div>

@@ -26,6 +26,12 @@
         height: 175px;
         font-size: 14px;
 
+        .stream-title {
+            display: block;
+            max-height: 63px;
+            overflow: hidden;
+        }
+
         .viewers {
             color: red;
         }

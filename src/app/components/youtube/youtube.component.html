@@ -11,7 +11,7 @@
     <div class="row px-fixed justify-content-around align-items-center">
       <div class="col-2" *ngFor="let youtubeVideo of youtubeDataVideos">
         <div class="card">
-          <a href="https://www.youtube.com/watch?v={{youtubeVideo.id.videoId}}"><img class="card-img-top thumbnail" src="{{youtubeVideo.snippet.thumbnails.medium.url}}" height="141px" width="250px"></a>
+          <a href="https://www.youtube.com/watch?v={{youtubeVideo.id.videoId}} " target="_blank"><img class="card-img-top thumbnail" src="{{youtubeVideo.snippet.thumbnails.medium.url}}" height="141px" width="250px"></a>
           <div class="card-body body-text">
             <h5 class="card-title text-uppercase font-weight-bold"><a href="https://www.youtube.com/watch?v={{youtubeVideo.id.videoId}}" target="_blank" class="display-name">{{youtubeVideo.snippet.channelTitle}}</a></h5>
             <p class="card-text font-weight-bold video-title">{{youtubeVideo.snippet.title}}</p>

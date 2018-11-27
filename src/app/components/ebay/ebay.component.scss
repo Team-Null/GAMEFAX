@@ -1,3 +1,15 @@
 button {
     background: #292929;
 }
+
+.ebay-img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+
+    img {
+        height: 100%;
+    }
+}

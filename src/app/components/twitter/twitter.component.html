@@ -15,9 +15,9 @@
             <div class="card-body">
               <a href="https://twitter.com/{{twitterData.user.screen_name}}" target="_blank"><img src="{{twitterData.user.profile_image_url}}" class="center"></a>
               <h3 class="card-title text-center">{{twitterData.user.name}}</h3>
-              <p class="card-text">{{twitterData.text}}</p>
-              <p class="card-text">{{twitterData.created_at}}</p>
-              <a href="https://twitter.com/i/web/status/{{twitterData.id_str}}" target="_blank"><button class="btn dark">Full Tweet<i class="fa fa-twitter ml-2"></i></button></a>
+              <p class="card-text tweet-text">{{twitterData.text}}</p>
+              <p class="card-text date-text">{{twitterData.created_at}}</p>
+              <div class="text-center"><a href="https://twitter.com/i/web/status/{{twitterData.id_str}}" target="_blank"><button class="btn dark btn-sm">Full Tweet<i class="fa fa-twitter ml-2"></i></button></a></div>
             </div>
           </div>
         </div>

@@ -8,24 +8,28 @@
             <p class="game-desc">{{gameDesc}}</p>
         </div>
         <div class="col-3 col-fixed">
-            <h1 class="text-left font-weight-bold">Information</h1>
-            <table class="table table-striped table-sm">
-                <tbody class="game-info">
-                    <tr *ngFor="let item of gameInfo">
-                        <td>{{item}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="info-table">
+                <h1 class="text-left font-weight-bold">Information</h1>
+                <table class="table table-striped table-sm">
+                    <tbody>
+                        <tr *ngFor="let item of gameInfo">
+                            <td>{{item}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col-3 col-fixed">
-            <h1 class="text-left font-weight-bold">Review Scores</h1>
-            <table class="table table-striped table-sm">
-                <tbody class="game-reviews">
-                    <tr *ngFor="let item of gameReviews">
-                        <td>{{item}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="review-table">
+                <h1 class="text-left font-weight-bold">Review Scores</h1>
+                <table class="table table-striped table-sm">
+                    <tbody>
+                        <tr *ngFor="let item of gameReviews">
+                            <td>{{item}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
